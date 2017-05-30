@@ -15,7 +15,7 @@ import org.junit.Test;
 import co.brtel.licenseutilizationcalculator.parsers.FeatureCodeUtilizedCapacityParser;
 import co.brtel.licenseutilizationcalculator.pojo.FeatureInformation;
 
-public class UsedCapacityParserTests {
+public class FeatureCodeUtilizedCapacityParserTests {
 	private FeatureCodeUtilizedCapacityParser parser;
 	String oneRncutilizationSampleData;
 	String multipleRncUtilizationSampleData;
