@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE raml SYSTEM 'raml20.dtd'>
-<raml version="2.0" xmlns="raml20.xsd">
+<raml version="2.0">
   <cmData type="actual">
     <header>
       <log dateTime="2017-05-27T15:27:07" action="created" appInfo="ActualExporter">UIValues are used</log>

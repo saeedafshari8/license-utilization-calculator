@@ -6,7 +6,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name="cmData")
 public class CmData {
 	private Header header;
-	private ManagedObject managedObject;
+	private ManagedObject[] managedObject;
 
 	public Header getHeader() {
 		return header;
@@ -17,12 +17,12 @@ public class CmData {
 		this.header = header;
 	}
 
-	public ManagedObject getManagedObject() {
+	public ManagedObject[] getManagedObject() {
 		return managedObject;
 	}
 
 	@XmlElement(name = "managedObject")
-	public void setManagedObject(ManagedObject managedObject) {
+	public void setManagedObject(ManagedObject[] managedObject) {
 		this.managedObject = managedObject;
 	}
 }
