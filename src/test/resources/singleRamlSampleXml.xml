@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<raml version="2.0">
+  <cmData type="actual">
+    <header>
+      <log dateTime="2017-05-27T15:27:07" action="created" appInfo="ActualExporter">UIValues are used</log>
+    </header>
+    <managedObject class="RNC" version="RNC16" distName="PLMN-PLMN/RNC-231" id="459407">
+      <p name="name">R231N</p>
+      <p name="ActivePRNC">231</p>
+      <p name="AlarmSetforWCELBLINIT">Disabled</p>
+      <p name="CBCSourceIPAddress">0.0.0.0</p>
+      <p name="CSAttachDetachAllowed">IMSI attach/detach allowed</p>
+      <p name="ConnectionRetryCounter">15</p>
+      <p name="ConsCheckRuleMask">0</p>
+      <p name="DLBLERConfInterval">99%</p>
+      <p name="DSCPStatisticsGroupA">No measurement is made for value 255</p>
+      <p name="DSCPStatisticsGroupB">No measurement is made for value 255</p>
+      <p name="DSCPStatisticsGroupC">No measurement is made for value 255.</p>
+      <p name="DSCPStatisticsGroupTCPack">No measurement is made for value 255</p>
+      <p name="EmergencyCallRedirectTimer">60</p>
+      <p name="ExtendedULDLactivationTmr">0</p>
+      <p name="IMEIQuery">0</p>
+      <p name="LTEPeriodicTriggerTimer">10</p>
+      <p name="MACLogChPriSRB1">1</p>
+      <p name="MACLogChPriSRB2">1</p>
+      <p name="MACLogChPriSRB3">1</p>
+      <p name="MaxAMRCapacityErl">10000</p>
+      <p name="MaxCarrierConnectivity">2000</p>
+      <p name="MaxIubPSThroughputMbps">2000</p>
+      <p name="MinRedEDPDCH">0</p>
+      <p name="N302">7</p>
+      <p name="N304">2</p>
+      <p name="N308">2</p>
+      <p name="OMSBackupIpAddress">10.14.249.2</p>
+      <p name="OMSIpAddress">10.14.249.2</p>
+      <p name="PageRep1stInterv">700</p>
+      <p name="PageRep2ndInterv">2000</p>
+      <p name="RANAPprocInitWait">30</p>
+      <p name="RNCChangeOrigin">Element Manager originated configuration action</p>
+      <p name="RNCIPAddress">10.5.121.134</p>
+      <p name="RNCName">R231N</p>
+      <p name="RTservicesForPS">PS streaming service available</p>
+      <p name="RestrictionInterval">60</p>
+      <p name="RncClientTLSMode">Probing</p>
+      <list name="RncOptions">
+        <p>WCDMA - GSM Inter-System Handover</p>
+        <p>Service Area Broadcast</p>
+        <p>Directed Emergency Call Inter-System Handover for US</p>
+        <p>Flexi WCDMA BTS 1900</p>
+        <p>Flexi WCDMA BTS 850</p>
+        <p>Enhanced Priority Based Scheduling and Overload Control for NRT Traffic</p>
+        <p>Connectivity Support for 512 BTSs</p>
+        <p>Load and Service Based IS/IF Handover</p>
+        <p>Intelligent Directed Emergency Call Inter-system Handover for US</p>
+        <p>Power Balancing</p>
+        <p>Throughput Based Optimisation of the Packet Scheduler Algorithm</p>
+        <p>Flexible Upgrade of NRT DCH Data Rate</p>
+        <p>Support for Tandem/Transcoder Free Operation</p>
+        <p>AMR Codec Sets (12.2, 7.95, 5.90, 4.75) and (5.90, 4.75)</p>
+        <p>Wideband AMR Codec Set (12.65, 8.85, 6.6)</p>
+        <p>WCDMA BTS 1700 &amp; 1800</p>
+        <p>Flexi WCDMA BTS 1700/2100</p>
+        <p>Flexi WCDMA BTS 900</p>
+        <p>Automatic Definition of Neighbouring Cells</p>
+        <p>Transport Bearer Tuning</p>
+        <p>16 kbit/s Return Channel DCH Data Rate Support for HSDPA</p>
+        <p>HSDPA Dynamic Resource Allocation</p>
+        <p>HSPA Layering for UEs in Common Channels</p>
+        <p>HSDPA 10 Codes</p>
+        <p>HSDPA 15 Codes</p>
+        <p>HSDPA 48 Users per Cell</p>
+        <p>HSDPA Code Multiplexing</p>
+        <p>HSDPA Mob, SHO, SCC and Soft/softer HO for DPCH</p>
+        <p>HSDPA with Simultaneous AMR Voice Call</p>
+        <p>HSDPA, ChSw, UL DPCHSch, ResumpT and DirRRCConSetu</p>
+        <p>Flexible Iu</p>
+        <p>Emergency Call Redirect to GSM</p>
+        <p>HSUPA with Simultaneous AMR Voice Call</p>
+        <p>HSUPA Basic 3 users per BTS</p>
+        <p>HSUPA Basic 12 users per BTS</p>
+        <p>RNC Licence Control for Iu Link Break Protection</p>
+        <p>HSDPA 10 Mbps per User</p>
+        <p>HSUPA 2.0 Mbps</p>
+        <p>HSPA Inter-RNC Cell Change</p>
+        <p>RNC GUI for BTS Connection Resources</p>
+        <p>Capacity license for the number of carriers</p>
+        <p>Wireless Priority Service</p>
+        <p>IP Based Iu-CS</p>
+        <p>IP Based Iu-PS</p>
+        <p>IP Based Iur</p>
+        <p>HSDPA Congestion Control</p>
+        <p>Detected Set Reporting and Measurements</p>
+        <p>Soft Handover Based on Detected Set Reporting</p>
+        <p>IP Based Iub</p>
+        <p>Dual Iub</p>
+        <p>HSDPA 64 Users per Cell</p>
+        <p>HSUPA 60 Users per BTS</p>
+        <p>PS RAB Reconfiguration</p>
+        <p>QoS Aware HSPA Scheduling</p>
+        <p>HSDPA 14 Mbps per User</p>
+        <p>HSPA Multi NRT RABs</p>
+        <p>HSDPA Inter-frequency Handover</p>
+        <p>Iub Transport QoS</p>
+        <p>Directed Retry of AMR call Intersystem Handover</p>
+        <p>LCS Shape Conversion</p>
+        <p>Satellite Iub</p>
+        <p>Inter-frequency Handover over Iur</p>
+        <p>HSDPA 64QAM</p>
+        <p>Fractional DPCH</p>
+        <p>HSUPA 2 ms TTI</p>
+        <p>HSUPA 5.8 Mbps</p>
+        <p>Continuous Packet Connectivity</p>
+        <p>Position Information in Subscriber Trace Report</p>
+        <p>24 kbps Paging Channel</p>
+        <p>HSPA 72 Users Per Cell</p>
+        <p>Common Channel Setup</p>
+        <p>Dual-Cell HSDPA 42Mbps</p>
+        <p>LTE Interworking-Cell Reselection to LTE</p>
+        <p>LTE Interworking-ISHO from LTE</p>
+        <p>Multi-Band Load Balancing</p>
+        <p>HSUPA 16QAM</p>
+        <p>HSPA 128 Users per Cell</p>
+        <p>High Speed Cell_FACH DL</p>
+        <p>BW utilization classes counters for VC and bundle</p>
+        <p>Bandwidth utilization classes counters for IP</p>
+        <p>Fast Dormancy Profiling</p>
+        <p>Smart LTE Layering</p>
+        <p>Layering in RRC Connection Release</p>
+        <p>Application Aware RAN</p>
+        <p>Fast Cell_PCH Switching</p>
+        <p>Fast HSPA Mobility</p>
+        <p>UE Periodic Measurement Report</p>
+        <p>AMR with DCH (0,0) Support for Iur</p>
+        <p>Automatic Access Class Restriction</p>
+        <p>Terminal Battery Drain Prevention in Cell Broadcas</p>
+        <p>Mass Event Handler</p>
+        <p>Voice Call Priorization during High Traffic Load</p>
+        <p>SAB Support with 2 SCCPCHs</p>
+        <p>CPC for 128 HSPA Users</p>
+        <p>High speed Cell_FACH Uplink</p>
+        <p>RRC Connection Setup Redirection</p>
+        <p>HSUPA Compressed Mode for LTE and Inter-frequency Handover</p>
+        <p>Measurement based LTE Layering</p>
+        <p>Smart LTE Handover</p>
+        <p>Subscriber Trace</p>
+      </list>
+      <p name="SIB11_priority">4</p>
+      <p name="SIB18_priority">4</p>
+      <p name="SIB19Priority">1</p>
+      <p name="SIB1_priority">2</p>
+      <p name="SIB2_priority">2</p>
+      <p name="SIB3_priority">3</p>
+      <p name="SIB5_priority">3</p>
+      <p name="SecOMSIpAddress">10.14.249.3</p>
+      <p name="ServingOMS">primary</p>
+      <p name="ServingOMSAdminSetting">automatic</p>
+      <p name="T302">4000 ms</p>
+      <p name="T304">2000 ms</p>
+      <p name="T305">30 min</p>
+      <p name="T307">30 s</p>
+      <p name="T308">160 ms</p>
+      <p name="T309">8</p>
+      <p name="T314">12s</p>
+      <p name="T316">30 s</p>
+      <p name="T317">180 s</p>
+      <p name="ToAWE_NRT_DCH_tti10">10</p>
+      <p name="ToAWE_NRT_DCH_tti20">10</p>
+      <p name="ToAWE_NRT_DCH_tti40">10</p>
+      <p name="ToAWE_RT_DCH_tti10">10</p>
+      <p name="ToAWE_RT_DCH_tti20">10</p>
+      <p name="ToAWE_RT_DCH_tti40">10</p>
+      <p name="ToAWE_Speech">5</p>
+      <p name="ToAWS_NRT_DCH_tti10">25</p>
+      <p name="ToAWS_NRT_DCH_tti20">25</p>
+      <p name="ToAWS_NRT_DCH_tti40">25</p>
+      <p name="ToAWS_RT_DCH_tti10">25</p>
+      <p name="ToAWS_RT_DCH_tti20">25</p>
+      <p name="ToAWS_RT_DCH_tti40">25</p>
+      <p name="ToAWS_Speech">15</p>
+      <p name="ULBLERConfInterval">99%</p>
+      <p name="UL_DLcapacityReqWait">5.0</p>
+      <p name="UePeriodicMeasCpuLimit">70</p>
+      <p name="UePeriodicMeasInterval">16000 ms</p>
+      <p name="WCELIdleAlarmTimeout">10</p>
+    </managedObject>
+  </cmData>
+</raml>
