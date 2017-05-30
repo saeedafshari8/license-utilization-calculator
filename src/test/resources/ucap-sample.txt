@@ -1,0 +1,28 @@
+--------- 2017-05-27 16:22:08 GMT+04:1,800,000 PLMN-PLMN/RNC-862 R862N ---------
+ZW7I:UCAP,FULL::;
+
+
+LOADING PROGRAM VERSION 1.27-0
+
+
+RNC       R862N               402471      2017-05-27  16:22:08
+
+
+USED CAPACITY REPORT:
+
+ FEATURE CODE       CAPACITY USAGE
+    REQUEST STATUS
+--------------------------------------------------------
+       960          635       
+    SUCCESS 
+       959          871       
+    SUCCESS 
+       958          757       
+    SUCCESS 
+
+
+COMMAND EXECUTED
+
+
+LICENCE AND FEATURE HANDLING COMMAND <W7_>
+<  
