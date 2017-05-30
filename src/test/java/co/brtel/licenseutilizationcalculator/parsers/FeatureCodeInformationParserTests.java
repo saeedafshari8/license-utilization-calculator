@@ -19,7 +19,7 @@ public class FeatureCodeInformationParserTests {
 	
 	@Before
 	public void setUp() throws IOException {
-		oneRncFeatureCodesSampleData = String.join(" ", Files.lines(new File(getClass().getResource("/feature-code-information-sample.txt").getFile()).toPath()).collect(Collectors.toList()));
+		oneRncFeatureCodesSampleData = String.join("\r\n", Files.lines(new File(getClass().getResource("/feature-code-information-sample.txt").getFile()).toPath()).collect(Collectors.toList()));
 		parser = new FeatureCodeInformationParser();
 	}
 	

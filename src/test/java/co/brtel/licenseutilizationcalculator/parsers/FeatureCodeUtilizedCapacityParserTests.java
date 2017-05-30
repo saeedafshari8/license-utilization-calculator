@@ -22,8 +22,8 @@ public class FeatureCodeUtilizedCapacityParserTests {
 
 	@Before
 	public void setUp() throws IOException {
-		oneRncutilizationSampleData = String.join(" ", Files.lines(new File(getClass().getResource("/ucap-sample.txt").getFile()).toPath()).collect(Collectors.toList()));
-		multipleRncUtilizationSampleData = String.join(" ",
+		oneRncutilizationSampleData = String.join("\r\n", Files.lines(new File(getClass().getResource("/ucap-sample.txt").getFile()).toPath()).collect(Collectors.toList()));
+		multipleRncUtilizationSampleData = String.join("\r\n",
 				Files.lines(new File(getClass().getResource("/ucap-multiple-sample.txt").getFile()).toPath()).collect(Collectors.toList()));
 		parser = new FeatureCodeUtilizedCapacityParser();
 	}
@@ -42,7 +42,6 @@ public class FeatureCodeUtilizedCapacityParserTests {
 
 	@Test
 	public void testReadRncsFeatureCodesUtilizations() {
-
 		Map<String, List<FeatureInformation>> rncFeaturesMap = parser.readRncsFeatureCodesUtilizations(multipleRncUtilizationSampleData);
 
 		Assert.assertEquals(2, rncFeaturesMap.size());
