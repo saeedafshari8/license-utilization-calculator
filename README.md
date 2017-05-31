@@ -1,2 +1,2 @@
-# license-utilization-calculator
-Calculates licenses utilization amount in a Telephone Operator Network
+######################license utilization calculator #########################
+Calculates licenses utilization amount in a telecommunication network.
