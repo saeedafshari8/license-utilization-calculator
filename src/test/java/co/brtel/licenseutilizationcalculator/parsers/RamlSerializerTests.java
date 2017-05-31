@@ -1,7 +1,6 @@
 package co.brtel.licenseutilizationcalculator.parsers;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.nio.file.Files;
@@ -30,7 +29,7 @@ public class RamlSerializerTests {
 				Files.lines(new File(getClass().getResource("/singleRamlSampleXml.xml").getFile()).toPath()).collect(Collectors.toList()));
 		ramlMultipleManagedObjectSampleXml = String.join("\r\n",
 				Files.lines(new File(getClass().getResource("/multipleRamlSampleXml.xml").getFile()).toPath()).collect(Collectors.toList()));
-		
+
 		ramlHugeNumberOfManagedObjectSampleXml1 = getClass().getResource("/hugeDump1.xml").getFile();
 		ramlHugeNumberOfManagedObjectSampleXml2 = getClass().getResource("/hugeDump2.xml").getFile();
 	}
@@ -49,13 +48,13 @@ public class RamlSerializerTests {
 		Assert.assertEquals(2, raml.getCmData().getManagedObject().length);
 		testRamlContent(raml);
 	}
-	
+
 	@Test
 	public void testRamlWithHugeNumberOfManagedObjectDeserialization() throws JAXBException, UnsupportedEncodingException, IOException {
 		List<ManagedObject> managedObjects = RamlSerializer.extractManagedObjects(Arrays.asList(ramlHugeNumberOfManagedObjectSampleXml1, ramlHugeNumberOfManagedObjectSampleXml2));
 		long rnfcCount = managedObjects.stream().filter(item -> item.getClassName().equals("RNC")).count();
 		long ipbrCount = managedObjects.stream().filter(item -> item.getClassName().equals("IPBR")).count();
-		
+
 		Assert.assertEquals(13, rnfcCount);
 		Assert.assertEquals(62, ipbrCount);
 	}

@@ -27,7 +27,9 @@ public class RamlSerializer {
 	}
 
 	/**
-	 * Extracts all ManagedObjects inside XML files. This function is useful for extracting objects in multiple files and when files are big.
+	 * Extracts all ManagedObjects inside XML files. This function is useful for
+	 * extracting objects in multiple files and when files are big.
+	 * 
 	 * @param filePathes
 	 * @return
 	 * @throws JAXBException
@@ -80,6 +82,12 @@ public class RamlSerializer {
 		return managedObjects;
 	}
 
+	/**
+	 * Skips first four lines to make the file standard for deserialization
+	 * 
+	 * @param br
+	 * @throws IOException
+	 */
 	private static void skipUnusedRamlParts(BufferedReader br) throws IOException {
 		br.readLine();
 		br.readLine();

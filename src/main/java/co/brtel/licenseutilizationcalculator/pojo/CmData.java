@@ -3,7 +3,7 @@ package co.brtel.licenseutilizationcalculator.pojo;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
-@XmlRootElement(name="cmData")
+@XmlRootElement(name = "cmData")
 public class CmData {
 	private Header header;
 	private ManagedObject[] managedObject;

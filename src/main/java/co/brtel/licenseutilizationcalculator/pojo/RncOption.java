@@ -8,11 +8,11 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class RncOption {
 	private String name;
 	private Parameter[] parameters;
-	
+
 	public String getName() {
 		return name;
 	}
-	
+
 	@XmlAttribute(name = "name")
 	public void setName(String name) {
 		this.name = name;
@@ -22,7 +22,7 @@ public class RncOption {
 		return parameters;
 	}
 
-	@XmlElement(name="p")
+	@XmlElement(name = "p")
 	public void setParameters(Parameter[] parameters) {
 		this.parameters = parameters;
 	}

@@ -24,7 +24,7 @@ public class ManagedObject {
 		return parameters;
 	}
 
-	@XmlElement(name="p")	
+	@XmlElement(name = "p")
 	public void setParameters(Parameter[] parameters) {
 		this.parameters = parameters;
 	}
@@ -33,7 +33,7 @@ public class ManagedObject {
 		return rncOption;
 	}
 
-	@XmlElement(name="list")
+	@XmlElement(name = "list")
 	public void setRncOption(RncOption rncOption) {
 		this.rncOption = rncOption;
 	}
