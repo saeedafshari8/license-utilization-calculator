@@ -267,7 +267,7 @@ public class FeatureInformation {
 	}
 
 	public String getUtilization() {
-		return utilization;
+		return utilization == null ? "-1" : utilization;
 	}
 
 	public void setUtilization(String utilization) {

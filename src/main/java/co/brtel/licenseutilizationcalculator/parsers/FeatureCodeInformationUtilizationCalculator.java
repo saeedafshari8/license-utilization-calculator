@@ -161,7 +161,7 @@ public class FeatureCodeInformationUtilizationCalculator {
 						.filter(item -> item.getClassName().equalsIgnoreCase("WCEL")).count()).toString());
 			}
 		}
-		if(featureInformation.getUtilization() == null)
+		if(featureInformation.getUtilization() == "-1")
 			featureInformation.setUtilization("0");
 		System.out.println("RNC-" + featureInformation.getRnc().getName() + ", FeatureCode-" + featureInformation.getCode() + ", Utilization=" + featureInformation.getUtilization());
 	}
