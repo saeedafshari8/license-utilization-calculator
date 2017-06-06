@@ -14,7 +14,7 @@ import co.brtel.licenseutilizationcalculator.pojo.RNC;
 public class FeatureCodeInformationParser {
 	private static final String FEATURE_CODE_INFORMATION_MATCH_UNNECESSARY_TEXT = "FEATURE INFORMATION";
 	private static final String FEATURE_CODE_INFORMATION_MATCH_PATTERN = "[\\W]*FEATURE CODE:[\\W]*(\\d*)[\\W]*FEATURE NAME:[\\W]*([a-zA-Z -/0-9_]*)[\\W]*FEATURE STATE:[\\W]*(ON|OFF)[\\W]*FEATURE CAPACITY:[\\W]*(\\d*)[\\W]*";
-	private static final String FEA_COMMAND_MATCH_PATTERN = "ZW7I:FEA,FULL(.*?)COMMAND EXECUTED";
+	private static final String FEA_COMMAND_MATCH_PATTERN = "ZW7I:FEA,FULL:FSTATE=ON;(.*?)COMMAND EXECUTED";
 
 	private String removeUnnecessaryData(String data) {
 		return data.split(FeatureCodeInformationParser.FEATURE_CODE_INFORMATION_MATCH_UNNECESSARY_TEXT)[1];
