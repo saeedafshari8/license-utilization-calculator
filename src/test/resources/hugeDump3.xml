@@ -64,10 +64,60 @@
     <managedObject class="WCEL" version="RNC16" distName="PLMN-PLMN/RNC-841/WBTS-3200/WCEL-1771" id="100616">
       <p name="DCellHSDPAEnabled">Enabled</p>
       <p name="CCHSetupEnabled">Enabled</p>
+	  <p name="HSUPAEnabled">Enabled</p>
+	  <p name="HSUPA2MSTTIEnabled">Disabled</p>
+	  <p name="HSDPA64UsersEnabled">Enabled</p>
+	  <p name="HSPAQoSEnabled">Enabled</p>
+	  <p name="HspaMultiNrtRabSupport">Supported</p>
+	  <p name="HSDPA64QAMallowed">Disabled</p>
+	  <p name="HSUPA2MSTTIEnabled">Disabled</p>
+	  <p name="FDPCHEnabled">Disabled</p>
+	  <p name="CPCEnabled">Disabled</p>
+	  <p name="IncomingLTEISHO">Disabled</p>
+	  <p name="HSFACHEnabled">Disabled</p>
+	  <p name="MDTPeriodicMeasEnabled">0</p>
+	  <p name="LTEHandoverEnabled">Disabled for all triggers</p>
+	  <p name="SABEnabled">Disabled</p>
+	  <p name="AppAwareRANEnabled">Disabled</p>
+	  <p name="LayeringRRCRelEnabled">Disabled</p>
+	  <p name="SmartLTELayeringEnabled">disabled for all triggers</p>
+	  <p name="FastHSPAMobilityEnabled">Disabled</p>
+	  <p name="MassEventHandler">0</p>
+	  <p name="HSFACHDRXEnabled">Disabled</p>
+	  <p name="VoiceCallPriority">Disabled</p>
+	  <p name="SmartLTELayeringEnabled">disabled for all triggers</p>
+	  <p name="LTECellReselection">Disabled</p>
     </managedObject>
     <managedObject class="WCEL" version="RNC16" distName="PLMN-PLMN/RNC-841/WBTS-3200/WCEL-1772" id="100617">
       <p name="DCellHSDPAEnabled">Disabled</p>
       <p name="CCHSetupEnabled">Disabled</p>
+	  <p name="HSUPAEnabled">Enabled</p>
+	  <p name="HSUPA2MSTTIEnabled">Enabled</p>
+	  <p name="MaxTotalUplinkSymbolRate">3</p>
+	  <p name="HSDPA64UsersEnabled">Enabled</p>
+	  <p name="HSPAQoSEnabled">Enabled</p>
+	  <p name="HspaMultiNrtRabSupport">Supported</p>
+	  <p name="HSDPA64QAMallowed">Enabled</p>
+	  <p name="HSUPA2MSTTIEnabled">Enabled</p>
+	  <p name="FDPCHEnabled">Enabled</p>
+	  <p name="LTEHandoverEnabled">Enabled for all triggers</p>
+	  <p name="SABEnabled">Enabled</p>
+	  <p name="HSFACHEnabled">Enabled</p>
+	  <p name="MDTPeriodicMeasEnabled">1</p>
+	  <p name="IncomingLTEISHO">Enabled</p>
+	  <p name="CPCEnabled">Enabled</p>
+	  <p name="PCH24kbpsEnabled">Enabled</p>
+	  <p name="NbrOfSCCPCHs">2</p>
+	  <p name="HSUPA16QAMAllowed">Enabled</p>
+	  <p name="AppAwareRANEnabled">Enabled</p>
+	  <p name="LayeringRRCRelEnabled">Enabled</p>
+	  <p name="SmartLTELayeringEnabled">enabled for all triggers</p>
+	  <p name="FastHSPAMobilityEnabled">Enabled</p>
+	  <p name="MassEventHandler">1</p>
+	  <p name="HSFACHDRXEnabled">Enabled</p>
+	  <p name="VoiceCallPriority">Enabled</p>
+	  <p name="SmartLTELayeringEnabled">enabled for all triggers</p>
+	  <p name="LTECellReselection">Enabled</p>
     </managedObject>
   </cmData>
 </raml>

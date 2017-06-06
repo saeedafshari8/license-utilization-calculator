@@ -112,7 +112,7 @@ public class FeatureInformation {
 		aMap.put("4492", CapacityUnit.CELL);
 		aMap.put("4504", CapacityUnit.CELL);
 		aMap.put("4533", CapacityUnit.CELL);
-		aMap.put("4538", CapacityUnit.DYNAMIC_CELL);
+		aMap.put("4538", CapacityUnit.CELL);
 		aMap.put("4545", CapacityUnit.CELL);
 		aMap.put("4780", CapacityUnit.CELL);
 		aMap.put("4783", CapacityUnit.CELL);
