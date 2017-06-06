@@ -8,6 +8,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name = "managedObject")
 public class ManagedObject {
 	private String className;
+	private String distName;
 	private RncOption rncOption;
 	private Parameter[] parameters;
 
@@ -18,6 +19,15 @@ public class ManagedObject {
 	@XmlAttribute(name = "class")
 	public void setClassName(String className) {
 		this.className = className;
+	}
+	
+	public String getDistName() {
+		return distName;
+	}
+
+	@XmlAttribute(name = "distName")
+	public void setDistName(String distName) {
+		this.distName = distName;
 	}
 
 	public Parameter[] getParameters() {
