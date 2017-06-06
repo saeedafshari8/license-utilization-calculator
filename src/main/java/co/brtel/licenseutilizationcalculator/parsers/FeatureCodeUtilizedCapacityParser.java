@@ -28,7 +28,7 @@ public class FeatureCodeUtilizedCapacityParser {
 		while (matcher.find()) {
 			FeatureInformation fi = new FeatureInformation();
 			fi.setCode(matcher.group(1));
-			fi.setCapacity(Integer.parseInt(matcher.group(2)));
+			fi.setUtilization(matcher.group(2));
 			fi.setRnc(rnc);
 			features.add(fi);
 			data = data.replace(matcher.group(), "");

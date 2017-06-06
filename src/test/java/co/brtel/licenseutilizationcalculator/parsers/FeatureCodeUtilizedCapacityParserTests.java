@@ -35,9 +35,9 @@ public class FeatureCodeUtilizedCapacityParserTests {
 
 		Assert.assertEquals(true, features.stream().allMatch(item -> item.getRnc().getName().equals("R862N") && item.getRnc().getCode().equals("402471")));
 
-		Assert.assertEquals(true, features.stream().filter(item -> item.getCode().equals("958")).findFirst().get().getCapacity() == 757);
-		Assert.assertEquals(true, features.stream().filter(item -> item.getCode().equals("959")).findFirst().get().getCapacity() == 871);
-		Assert.assertEquals(true, features.stream().filter(item -> item.getCode().equals("960")).findFirst().get().getCapacity() == 635);
+		Assert.assertEquals(true, features.stream().filter(item -> item.getCode().equals("958")).findFirst().get().getUtilization().equals("757"));
+		Assert.assertEquals(true, features.stream().filter(item -> item.getCode().equals("959")).findFirst().get().getUtilization().equals("871"));
+		Assert.assertEquals(true, features.stream().filter(item -> item.getCode().equals("960")).findFirst().get().getUtilization().equals("635"));
 	}
 
 	@Test
@@ -47,13 +47,13 @@ public class FeatureCodeUtilizedCapacityParserTests {
 		Assert.assertEquals(2, rncFeaturesMap.size());
 		String rnc1Name = "R862N";
 		String rnc2Name = "R841N";
-		Assert.assertEquals(true, rncFeaturesMap.get(rnc1Name).stream().filter(item -> item.getCode().equals("958")).findFirst().get().getCapacity() == 757);
-		Assert.assertEquals(true, rncFeaturesMap.get(rnc1Name).stream().filter(item -> item.getCode().equals("959")).findFirst().get().getCapacity() == 871);
-		Assert.assertEquals(true, rncFeaturesMap.get(rnc1Name).stream().filter(item -> item.getCode().equals("960")).findFirst().get().getCapacity() == 635);
+		Assert.assertEquals(true, rncFeaturesMap.get(rnc1Name).stream().filter(item -> item.getCode().equals("958")).findFirst().get().getUtilization().equals("757"));
+		Assert.assertEquals(true, rncFeaturesMap.get(rnc1Name).stream().filter(item -> item.getCode().equals("959")).findFirst().get().getUtilization().equals("871"));
+		Assert.assertEquals(true, rncFeaturesMap.get(rnc1Name).stream().filter(item -> item.getCode().equals("960")).findFirst().get().getUtilization().equals("635"));
 		
-		Assert.assertEquals(true, rncFeaturesMap.get(rnc2Name).stream().filter(item -> item.getCode().equals("958")).findFirst().get().getCapacity() == 658);
-		Assert.assertEquals(true, rncFeaturesMap.get(rnc2Name).stream().filter(item -> item.getCode().equals("959")).findFirst().get().getCapacity() == 757);
-		Assert.assertEquals(true, rncFeaturesMap.get(rnc2Name).stream().filter(item -> item.getCode().equals("960")).findFirst().get().getCapacity() == 553);
+		Assert.assertEquals(true, rncFeaturesMap.get(rnc2Name).stream().filter(item -> item.getCode().equals("958")).findFirst().get().getUtilization().equals("658"));
+		Assert.assertEquals(true, rncFeaturesMap.get(rnc2Name).stream().filter(item -> item.getCode().equals("959")).findFirst().get().getUtilization().equals("757"));
+		Assert.assertEquals(true, rncFeaturesMap.get(rnc2Name).stream().filter(item -> item.getCode().equals("960")).findFirst().get().getUtilization().equals("553"));
 	}
 
 	@After
