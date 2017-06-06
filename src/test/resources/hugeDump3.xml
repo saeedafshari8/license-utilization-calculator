@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE raml SYSTEM 'raml20.dtd'>
+<raml version="2.0" xmlns="raml20.xsd">
+  <cmData type="actual">
+    <header>
+      <log dateTime="2017-05-27T15:27:07" action="created" appInfo="ActualExporter">UIValues are used</log>
+    </header>
+    <managedObject class="RNFC" version="RNC16" distName="PLMN-PLMN/RNC-841/RNFC-1" id="145081">
+      <p name="AMRCodecSetEnabled">Enabled</p>
+      <p name="AMRWithEDCH">Enabled</p>
+      <p name="AMRWithHSDSCH">Enabled</p>
+      <p name="AutoACResEnabled">0</p>
+      <p name="AutomDLPlanUpdEnabled">No</p>
+      <p name="BTSLoadIndSel">3GPP cause code is used</p>
+      <p name="CCCHforCUCallowed">Allowed</p>
+      <p name="CMmasterSwitch">Used</p>
+      <p name="CSFBEnabled">Enabled</p>
+      <p name="CUCforPCHtoDCHallowed">true</p>
+      <p name="CVUserInactInSignConnRel">Yes</p>
+      <p name="DCH00SuppOnIurEnabled">Disabled</p>
+      <p name="DCHBitRateBalancing">Enabled</p>
+      <p name="DCHtoPCHEnabled">Enabled</p>
+      <p name="DLOptimisationUsage">Feature is activated with SF step 1</p>
+      <p name="DynUsageHSDPAReturnChannel">On</p>
+      <p name="EUTRAdetection">Enabled</p>
+      <p name="EmergencyCallRedirect">Disabled</p>
+      <p name="FRLCEnabled">Enabled</p>
+      <p name="FastDormancyEnabled">Disabled</p>
+      <p name="FastPCHSwitchEnabled">Disabled</p>
+      <p name="FasterOLPCEnabled">Enabled</p>
+      <p name="FlexULRLCEnabled">Enabled</p>
+      <p name="FlexUpgrUsage">On</p>
+      <p name="HLSModeSelection">1/2 HLS allowed</p>
+      <p name="HSDPA16KBPSReturnChannel">Enabled</p>
+      <p name="HSDPA48UsersEnabled">In use</p>
+      <p name="HSDPADynamicResourceAllocation">Enabled</p>
+      <p name="HSDPAMobility">Enabled</p>
+      <p name="HSPAInterRNCMobility">Enabled</p>
+      <p name="HSPAOverIurExt">Disabled</p>
+      <p name="HSUPADynBLEREnabled">Enabled</p>
+      <p name="IFHOOverIurEnabled">Enabled</p>
+      <p name="IMSIMeasMDTEnabled">Disabled</p>
+      <p name="ISHOCancellation">Enabled</p>
+      <p name="IuPSrelWait3G2GMultiServ">120s</p>
+      <p name="LFDProfEnabled">Enabled</p>
+      <p name="PBSpolicy">Higher priority</p>
+      <p name="PPACEnabled">Disabled</p>
+      <p name="PSOpThroUsage">15</p>
+      <p name="PostVerifPeriodDLSynch">Post-verification period not used</p>
+      <p name="PowerBalancing">Power Balancing is in use</p>
+      <p name="RABDRAEnabled">Disabled</p>
+      <p name="RNFCChangeOrigin">NetAct RNW plan originated configuration action</p>
+      <p name="RRCReDirEnabled">Disabled</p>
+      <p name="RRCSetupCCHEnabledR99">Enabled</p>
+      <p name="SIBCapabilityCheck">Disabled</p>
+      <p name="SLHOCmAllowedNRT">Allowed</p>
+      <p name="SRVCCEnabled">Enabled</p>
+      <p name="SignConnActivitySupervision">60 s</p>
+      <p name="SubscriberTrace">Enabled</p>
+      <p name="WBAMRCodecSetEnabled">Enabled</p>
+      <p name="WPSCallRestriction">Disabled</p>
+      <p name="WireLessPriorityService">Disabled</p>
+    </managedObject>
+    <managedObject class="WCEL" version="RNC16" distName="PLMN-PLMN/RNC-841/WBTS-3200/WCEL-1771" id="100616">
+      <p name="DCellHSDPAEnabled">Enabled</p>
+      <p name="CCHSetupEnabled">Enabled</p>
+    </managedObject>
+    <managedObject class="WCEL" version="RNC16" distName="PLMN-PLMN/RNC-841/WBTS-3200/WCEL-1772" id="100617">
+      <p name="DCellHSDPAEnabled">Disabled</p>
+      <p name="CCHSetupEnabled">Disabled</p>
+    </managedObject>
+  </cmData>
+</raml>

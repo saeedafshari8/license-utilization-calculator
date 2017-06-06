@@ -1,0 +1,1077 @@
+--------- 2017-05-27 16:22:08 GMT+04:1,800,000 PLMN-PLMN/RNC-862 R862N ---------
+ZW7I:UCAP,FULL::;
+
+
+LOADING PROGRAM VERSION 1.27-0
+
+
+RNC       R862N               402471      2017-05-27  16:22:08
+
+
+USED CAPACITY REPORT:
+
+ FEATURE CODE       CAPACITY USAGE
+    REQUEST STATUS
+--------------------------------------------------------
+       960          635       
+    SUCCESS 
+       959          871       
+    SUCCESS 
+       958          757       
+    SUCCESS 
+
+
+COMMAND EXECUTED
+
+
+LICENCE AND FEATURE HANDLING COMMAND <W7_>
+<  
+
+
+--------- 2017-05-27 16:22:08 GMT+04:1,800,000 PLMN-PLMN/RNC-841 R841N ---------
+ZW7I:UCAP,FULL::;
+
+
+LOADING PROGRAM VERSION 1.27-0
+
+
+RNC       R841N               387794      2017-05-27  16:22:08
+
+
+USED CAPACITY REPORT:
+
+ FEATURE CODE       CAPACITY USAGE
+    REQUEST STATUS
+--------------------------------------------------------
+       960          553       
+    SUCCESS 
+       959          757       
+    SUCCESS 
+       958          658       
+    SUCCESS 
+
+
+COMMAND EXECUTED
+
+
+LICENCE AND FEATURE HANDLING COMMAND <W7_>
+<  
+
+
+--------- 2017-05-27 16:22:08 GMT+04:1,800,000 PLMN-PLMN/RNC-862 R862N ---------
+ZW7I:FEA,FULL:FSTATE=ON;
+
+LOADING PROGRAM VERSION 1.27-0
+
+
+RNC       R862N               402471      2017-05-27  16:22:08
+
+
+FEATURE INFORMATION:
+
+----------------------------------------------
+    FEATURE CODE:..............1279
+    FEATURE NAME:..............HSDPA Inter-frequency Handover          
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........980
+----------------------------------------------
+    FEATURE CODE:..............1303
+    FEATURE NAME:..............Satellite Iub                           
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........5
+----------------------------------------------
+    FEATURE CODE:..............1062
+    FEATURE NAME:..............Wireless Priority Service               
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........980
+----------------------------------------------
+    FEATURE CODE:..............638
+    FEATURE NAME:..............Cell Throughput Measurements for RNC    
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........980
+----------------------------------------------
+    FEATURE CODE:..............1030
+    FEATURE NAME:..............Iu Link Break Protection                
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........980
+----------------------------------------------
+    FEATURE CODE:..............885
+    FEATURE NAME:..............Emergency Call Redirect to GSM          
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........980
+----------------------------------------------
+    FEATURE CODE:..............975
+    FEATURE NAME:..............Subscriber Trace                        
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........980
+----------------------------------------------
+    FEATURE CODE:..............633
+    FEATURE NAME:..............Transport Bearer Tuning                 
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........980
+----------------------------------------------
+    FEATURE CODE:..............619
+    FEATURE NAME:..............Flexible Iu                             
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........980
+----------------------------------------------
+    FEATURE CODE:..............641
+    FEATURE NAME:..............Basic HSDPA with QPSK and 5 Codes       
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........980
+----------------------------------------------
+    FEATURE CODE:..............968
+    FEATURE NAME:..............HSDPA with Simultaneous AMR Voice Call  
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........980
+----------------------------------------------
+    FEATURE CODE:..............967
+    FEATURE NAME:..............HSDPA Serving Cell Change               
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........980
+----------------------------------------------
+    FEATURE CODE:..............627
+    FEATURE NAME:..............HSDPA Dynamic Resource Allocation       
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........980
+----------------------------------------------
+    FEATURE CODE:..............620
+    FEATURE NAME:..............HSDPA 10 Codes                          
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........980
+----------------------------------------------
+    FEATURE CODE:..............621
+    FEATURE NAME:..............HSDPA 15 Codes                          
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........980
+----------------------------------------------
+    FEATURE CODE:..............1028
+    FEATURE NAME:..............HSDPA 10 Mbps per User                  
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........980
+----------------------------------------------
+    FEATURE CODE:..............623
+    FEATURE NAME:..............HSDPA Code Multiplexing                 
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........980
+----------------------------------------------
+    FEATURE CODE:..............625
+    FEATURE NAME:..............16 kbit/s Return Channel DCH Data Rate S
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........980
+----------------------------------------------
+    FEATURE CODE:..............622
+    FEATURE NAME:..............HSDPA 48 Users per Cell                 
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........980
+----------------------------------------------
+    FEATURE CODE:..............630
+    FEATURE NAME:..............HSUPA with Simultaneous AMR Voice Call  
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........980
+----------------------------------------------
+    FEATURE CODE:..............962
+    FEATURE NAME:..............HSUPA Basic 3 users per BTS             
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........980
+----------------------------------------------
+    FEATURE CODE:..............961
+    FEATURE NAME:..............HSUPA Basic 12 users per BTS            
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........980
+----------------------------------------------
+    FEATURE CODE:..............1029
+    FEATURE NAME:..............HSUPA 2.0 Mbps                          
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........980
+----------------------------------------------
+    FEATURE CODE:..............969
+    FEATURE NAME:..............Dynamic HSDPA Transport Scheduling      
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........980
+----------------------------------------------
+    FEATURE CODE:..............966
+    FEATURE NAME:..............RNC GUI for BTS Connection Resources    
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........980
+----------------------------------------------
+    FEATURE CODE:..............1246
+    FEATURE NAME:..............Dual Iub                                
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........980
+----------------------------------------------
+    FEATURE CODE:..............1247
+    FEATURE NAME:..............Iub Transport QoS                       
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........980
+----------------------------------------------
+    FEATURE CODE:..............1069
+    FEATURE NAME:..............IP Based Iu-CS                          
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........980
+----------------------------------------------
+    FEATURE CODE:..............1070
+    FEATURE NAME:..............IP Based Iu-PS                          
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........980
+----------------------------------------------
+    FEATURE CODE:..............1071
+    FEATURE NAME:..............IP Based Iur                            
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........980
+----------------------------------------------
+    FEATURE CODE:..............1079
+    FEATURE NAME:..............IP Based Iub                            
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........980
+----------------------------------------------
+    FEATURE CODE:..............1080
+    FEATURE NAME:..............Soft Handover Based on Detected Set Repo
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........980
+----------------------------------------------
+    FEATURE CODE:..............1085
+    FEATURE NAME:..............HSDPA 14 Mbps per User                  
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........980
+----------------------------------------------
+    FEATURE CODE:..............1087
+    FEATURE NAME:..............HSDPA 64 Users per Cell                 
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........980
+----------------------------------------------
+    FEATURE CODE:..............1088
+    FEATURE NAME:..............HSUPA 60 Users per BTS                  
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........980
+----------------------------------------------
+    FEATURE CODE:..............1089
+    FEATURE NAME:..............QoS Aware HSPA Scheduling               
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........980
+----------------------------------------------
+    FEATURE CODE:..............1091
+    FEATURE NAME:..............HSPA Multi NRT RABs                     
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........980
+----------------------------------------------
+    FEATURE CODE:..............1092
+    FEATURE NAME:..............PS RAB Reconfiguration                  
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........980
+----------------------------------------------
+    FEATURE CODE:..............1093
+    FEATURE NAME:..............HSDPA Congestion Control                
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........980
+----------------------------------------------
+    FEATURE CODE:..............1109
+    FEATURE NAME:..............Detected Set Reporting and Measurements 
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........980
+----------------------------------------------
+    FEATURE CODE:..............1110
+    FEATURE NAME:..............Counters for RAB and DCH Setups         
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........980
+----------------------------------------------
+    FEATURE CODE:..............1061
+    FEATURE NAME:..............HSPA Inter-RNC Cell Change              
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........980
+----------------------------------------------
+    FEATURE CODE:..............1302
+    FEATURE NAME:..............Directed Retry                          
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........980
+----------------------------------------------
+    FEATURE CODE:..............1375
+    FEATURE NAME:..............LCS Shape Conversion                    
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........980
+----------------------------------------------
+    FEATURE CODE:..............1060
+    FEATURE NAME:..............Inter-frequency Handover over Iur       
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........980
+----------------------------------------------
+    FEATURE CODE:..............1471
+    FEATURE NAME:..............HSDPA 64QAM                             
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........980
+----------------------------------------------
+    FEATURE CODE:..............1086
+    FEATURE NAME:..............HSUPA 5.8 Mbps                          
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........980
+----------------------------------------------
+    FEATURE CODE:..............1475
+    FEATURE NAME:..............HSUPA 2 ms TTI                          
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........980
+----------------------------------------------
+    FEATURE CODE:..............1476
+    FEATURE NAME:..............Continuous Packet Connectivity          
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........980
+----------------------------------------------
+    FEATURE CODE:..............1478
+    FEATURE NAME:..............HSPA 72 Users per Cell                  
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........980
+----------------------------------------------
+    FEATURE CODE:..............1435
+    FEATURE NAME:..............RAB Bit Rate Counters                   
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........980
+----------------------------------------------
+    FEATURE CODE:..............1490
+    FEATURE NAME:..............Channel Element Utilization in WBTS     
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........980
+----------------------------------------------
+    FEATURE CODE:..............1434
+    FEATURE NAME:..............Position Information in Subscriber Trace
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........980
+----------------------------------------------
+    FEATURE CODE:..............1485
+    FEATURE NAME:..............24 kbps Paging Channel                  
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........980
+----------------------------------------------
+    FEATURE CODE:..............1057
+    FEATURE NAME:..............IPSec for management plane              
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........980
+----------------------------------------------
+    FEATURE CODE:..............1683
+    FEATURE NAME:..............Ethernet Link Aggregation for RNC       
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........980
+----------------------------------------------
+    FEATURE CODE:..............1684
+    FEATURE NAME:..............Efficient Transport for small IP Packets
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........980
+----------------------------------------------
+    FEATURE CODE:..............1754
+    FEATURE NAME:..............HSUPA Pre-emption Light                 
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........980
+----------------------------------------------
+    FEATURE CODE:..............1755
+    FEATURE NAME:..............LTE Interworking                        
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........980
+----------------------------------------------
+    FEATURE CODE:..............1756
+    FEATURE NAME:..............LTE PS Handover and SRVCC               
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........980
+----------------------------------------------
+    FEATURE CODE:..............1497
+    FEATURE NAME:..............HSUPA 16QAM                             
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........980
+----------------------------------------------
+    FEATURE CODE:..............1795
+    FEATURE NAME:..............High Speed Cell_FACH                    
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........980
+----------------------------------------------
+    FEATURE CODE:..............1796
+    FEATURE NAME:..............HSPA 128 users per cell                 
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........980
+----------------------------------------------
+    FEATURE CODE:..............1798
+    FEATURE NAME:..............UE Periodic Measurement Report          
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........980
+----------------------------------------------
+    FEATURE CODE:..............3384
+    FEATURE NAME:..............Fast Dormancy Profiling                 
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........980
+----------------------------------------------
+    FEATURE CODE:..............3420
+    FEATURE NAME:..............SAB Support with 2 SCCPCHs              
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........980
+----------------------------------------------
+    FEATURE CODE:..............3422
+    FEATURE NAME:..............Application Aware RAN                   
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........980
+----------------------------------------------
+    FEATURE CODE:..............4160
+    FEATURE NAME:..............Fast HSPA Mobility                      
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........980
+----------------------------------------------
+    FEATURE CODE:..............4290
+    FEATURE NAME:..............Automatic Access Class Restriction      
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........980
+----------------------------------------------
+    FEATURE CODE:..............4293
+    FEATURE NAME:..............Fast Cell_PCH Switching                 
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........980
+----------------------------------------------
+    FEATURE CODE:..............4348
+    FEATURE NAME:..............AMR with DCH (0,0) Support on Iur       
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........980
+----------------------------------------------
+    FEATURE CODE:..............4492
+    FEATURE NAME:..............Mass Event Handler                      
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........980
+----------------------------------------------
+    FEATURE CODE:..............4504
+    FEATURE NAME:..............Terminal Battery Drain Prevention in Cel
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........980
+----------------------------------------------
+    FEATURE CODE:..............4533
+    FEATURE NAME:..............High Speed Cell_FACH Uplink             
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........980
+----------------------------------------------
+    FEATURE CODE:..............4538
+    FEATURE NAME:..............CPC for 128 HSPA Users                  
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........980
+----------------------------------------------
+    FEATURE CODE:..............4545
+    FEATURE NAME:..............Voice Call Priorization during High Load
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........980
+----------------------------------------------
+    FEATURE CODE:..............2117
+    FEATURE NAME:..............End-user experienced DL Throughput      
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........980
+----------------------------------------------
+    FEATURE CODE:..............1690
+    FEATURE NAME:..............CCH Setup                               
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........980
+----------------------------------------------
+    FEATURE CODE:..............1686
+    FEATURE NAME:..............Dual-Cell HSDPA 42Mbps                  
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........980
+----------------------------------------------
+    FEATURE CODE:..............1897
+    FEATURE NAME:..............Bandwidth utilization classes counters f
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........980
+----------------------------------------------
+    FEATURE CODE:..............1898
+    FEATURE NAME:..............Bandwidth utilization classes counters f
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........980
+----------------------------------------------
+    FEATURE CODE:..............958
+    FEATURE NAME:..............Iub throughput 1 Mbit/s                 
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........1500
+----------------------------------------------
+    FEATURE CODE:..............959
+    FEATURE NAME:..............AMR capacity 1 Erl                      
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........7000
+----------------------------------------------
+    FEATURE CODE:..............960
+    FEATURE NAME:..............Carrier connectivity                    
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........1000
+----------------------------------------------
+    FEATURE CODE:..............1306
+    FEATURE NAME:..............SSH Server                              
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........1
+----------------------------------------------
+    FEATURE CODE:..............1305
+    FEATURE NAME:..............SFTP Server                             
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........1
+----------------------------------------------
+    FEATURE CODE:..............811
+    FEATURE NAME:..............M3UA Association Set Measurement        
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........1
+----------------------------------------------
+    FEATURE CODE:..............3903
+    FEATURE NAME:..............Smart LTE Layering                      
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........980
+----------------------------------------------
+    FEATURE CODE:..............1108
+    FEATURE NAME:..............OSPF for Redundancy                     
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........980
+----------------------------------------------
+    FEATURE CODE:..............1938
+    FEATURE NAME:..............Multi-Band Load Balancing               
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........1
+----------------------------------------------
+    FEATURE CODE:..............4780
+    FEATURE NAME:..............RRC Connection Setup Redirection        
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........980
+----------------------------------------------
+    FEATURE CODE:..............1107
+    FEATURE NAME:..............Pre-Aggregation of RCPM Data in RNC     
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........980
+----------------------------------------------
+    FEATURE CODE:..............974
+    FEATURE NAME:..............RNC Mngmt Tool for Fault Localisation   
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........980
+----------------------------------------------
+    FEATURE CODE:..............3414
+    FEATURE NAME:..............Smart LTE Handover                      
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........980
+----------------------------------------------
+    FEATURE CODE:..............3898
+    FEATURE NAME:..............Layering in RRC Connection Release      
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........980
+----------------------------------------------
+    FEATURE CODE:..............628
+    FEATURE NAME:..............HSDPA Layering for UEs in CommonChannels
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........980
+----------------------------------------------
+    FEATURE CODE:..............4839
+    FEATURE NAME:..............Measurement based LTE Layering          
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........980
+----------------------------------------------
+    FEATURE CODE:..............4783
+    FEATURE NAME:..............HSUPA Compressed Mode for LTE and Inter-
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........980
+
+
+COMMAND EXECUTED
+
+
+LICENCE AND FEATURE HANDLING COMMAND <W7_>
+<  
+
+--------- 2017-05-27 16:22:08 GMT+04:1,800,000 PLMN-PLMN/RNC-841 R841N ---------
+ZW7I:FEA,FULL:FSTATE=ON;
+
+LOADING PROGRAM VERSION 1.27-0
+
+
+RNC       R841N               387794      2017-05-27  16:22:08
+
+
+FEATURE INFORMATION:
+
+----------------------------------------------
+    FEATURE CODE:..............1478
+    FEATURE NAME:..............HSPA 72 Users per Cell                  
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........323
+----------------------------------------------
+    FEATURE CODE:..............1302
+    FEATURE NAME:..............Directed Retry                          
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........446
+----------------------------------------------
+    FEATURE CODE:..............633
+    FEATURE NAME:..............Transport Bearer Tuning                 
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........446
+----------------------------------------------
+    FEATURE CODE:..............1062
+    FEATURE NAME:..............Wireless Priority Service               
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........446
+----------------------------------------------
+    FEATURE CODE:..............1030
+    FEATURE NAME:..............Iu Link Break Protection                
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........446
+----------------------------------------------
+    FEATURE CODE:..............638
+    FEATURE NAME:..............Cell Throughput Measurements for RNC    
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........446
+----------------------------------------------
+    FEATURE CODE:..............885
+    FEATURE NAME:..............Emergency Call Redirect to GSM          
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........446
+----------------------------------------------
+    FEATURE CODE:..............619
+    FEATURE NAME:..............Flexible Iu                             
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........446
+----------------------------------------------
+    FEATURE CODE:..............968
+    FEATURE NAME:..............HSDPA with Simultaneous AMR Voice Call  
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........446
+----------------------------------------------
+    FEATURE CODE:..............967
+    FEATURE NAME:..............HSDPA Serving Cell Change               
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........446
+----------------------------------------------
+    FEATURE CODE:..............622
+    FEATURE NAME:..............HSDPA 48 Users per Cell                 
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........446
+----------------------------------------------
+    FEATURE CODE:..............630
+    FEATURE NAME:..............HSUPA with Simultaneous AMR Voice Call  
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........446
+----------------------------------------------
+    FEATURE CODE:..............962
+    FEATURE NAME:..............HSUPA Basic 3 users per BTS             
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........446
+----------------------------------------------
+    FEATURE CODE:..............961
+    FEATURE NAME:..............HSUPA Basic 12 users per BTS            
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........446
+----------------------------------------------
+    FEATURE CODE:..............1029
+    FEATURE NAME:..............HSUPA 2.0 Mbps                          
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........446
+----------------------------------------------
+    FEATURE CODE:..............969
+    FEATURE NAME:..............Dynamic HSDPA Transport Scheduling      
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........446
+----------------------------------------------
+    FEATURE CODE:..............966
+    FEATURE NAME:..............RNC GUI for BTS Connection Resources    
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........446
+----------------------------------------------
+    FEATURE CODE:..............1246
+    FEATURE NAME:..............Dual Iub                                
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........446
+----------------------------------------------
+    FEATURE CODE:..............1247
+    FEATURE NAME:..............Iub Transport QoS                       
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........446
+----------------------------------------------
+    FEATURE CODE:..............1069
+    FEATURE NAME:..............IP Based Iu-CS                          
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........446
+----------------------------------------------
+    FEATURE CODE:..............1070
+    FEATURE NAME:..............IP Based Iu-PS                          
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........446
+----------------------------------------------
+    FEATURE CODE:..............1071
+    FEATURE NAME:..............IP Based Iur                            
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........446
+----------------------------------------------
+    FEATURE CODE:..............1079
+    FEATURE NAME:..............IP Based Iub                            
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........446
+----------------------------------------------
+    FEATURE CODE:..............1080
+    FEATURE NAME:..............Soft Handover Based on Detected Set Repo
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........446
+----------------------------------------------
+    FEATURE CODE:..............1085
+    FEATURE NAME:..............HSDPA 14 Mbps per User                  
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........446
+----------------------------------------------
+    FEATURE CODE:..............1087
+    FEATURE NAME:..............HSDPA 64 Users per Cell                 
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........373
+----------------------------------------------
+    FEATURE CODE:..............1088
+    FEATURE NAME:..............HSUPA 60 Users per BTS                  
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........446
+----------------------------------------------
+    FEATURE CODE:..............1089
+    FEATURE NAME:..............QoS Aware HSPA Scheduling               
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........446
+----------------------------------------------
+    FEATURE CODE:..............1091
+    FEATURE NAME:..............HSPA Multi NRT RABs                     
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........446
+----------------------------------------------
+    FEATURE CODE:..............1092
+    FEATURE NAME:..............PS RAB Reconfiguration                  
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........446
+----------------------------------------------
+    FEATURE CODE:..............1093
+    FEATURE NAME:..............HSDPA Congestion Control                
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........446
+----------------------------------------------
+    FEATURE CODE:..............975
+    FEATURE NAME:..............Subscriber Trace                        
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........446
+----------------------------------------------
+    FEATURE CODE:..............1109
+    FEATURE NAME:..............Detected Set Reporting and Measurements 
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........446
+----------------------------------------------
+    FEATURE CODE:..............1110
+    FEATURE NAME:..............Counters for RAB and DCH Setups         
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........446
+----------------------------------------------
+    FEATURE CODE:..............1061
+    FEATURE NAME:..............HSPA Inter-RNC Cell Change              
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........446
+----------------------------------------------
+    FEATURE CODE:..............1303
+    FEATURE NAME:..............Satellite Iub                           
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........5
+----------------------------------------------
+    FEATURE CODE:..............1060
+    FEATURE NAME:..............Inter-frequency Handover over Iur       
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........446
+----------------------------------------------
+    FEATURE CODE:..............1057
+    FEATURE NAME:..............IPSec for management plane              
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........446
+----------------------------------------------
+    FEATURE CODE:..............1754
+    FEATURE NAME:..............HSUPA Pre-emption Light                 
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........446
+----------------------------------------------
+    FEATURE CODE:..............1375
+    FEATURE NAME:..............LCS Shape Conversion                    
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........446
+----------------------------------------------
+    FEATURE CODE:..............1471
+    FEATURE NAME:..............HSDPA 64QAM                             
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........446
+----------------------------------------------
+    FEATURE CODE:..............1086
+    FEATURE NAME:..............HSUPA 5.8 Mbps                          
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........446
+----------------------------------------------
+    FEATURE CODE:..............1475
+    FEATURE NAME:..............HSUPA 2 ms TTI                          
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........446
+----------------------------------------------
+    FEATURE CODE:..............1476
+    FEATURE NAME:..............Continuous Packet Connectivity          
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........323
+----------------------------------------------
+    FEATURE CODE:..............1435
+    FEATURE NAME:..............RAB Bit Rate Counters                   
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........446
+----------------------------------------------
+    FEATURE CODE:..............1490
+    FEATURE NAME:..............Channel Element Utilization in WBTS     
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........446
+----------------------------------------------
+    FEATURE CODE:..............1434
+    FEATURE NAME:..............Position Information in Subscriber Trace
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........446
+----------------------------------------------
+    FEATURE CODE:..............1485
+    FEATURE NAME:..............24 kbps Paging Channel                  
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........446
+----------------------------------------------
+    FEATURE CODE:..............1755
+    FEATURE NAME:..............LTE Interworking                        
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........674
+----------------------------------------------
+    FEATURE CODE:..............1683
+    FEATURE NAME:..............Ethernet Link Aggregation for RNC       
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........446
+----------------------------------------------
+    FEATURE CODE:..............1684
+    FEATURE NAME:..............Efficient Transport for small IP Packets
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........446
+----------------------------------------------
+    FEATURE CODE:..............1756
+    FEATURE NAME:..............LTE PS Handover and SRVCC               
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........674
+----------------------------------------------
+    FEATURE CODE:..............4538
+    FEATURE NAME:..............CPC for 128 HSPA Users                  
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........250
+----------------------------------------------
+    FEATURE CODE:..............2117
+    FEATURE NAME:..............End-user experienced DL Throughput      
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........446
+----------------------------------------------
+    FEATURE CODE:..............3420
+    FEATURE NAME:..............SAB Support with 2 SCCPCHs              
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........446
+----------------------------------------------
+    FEATURE CODE:..............1497
+    FEATURE NAME:..............HSUPA 16QAM                             
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........446
+----------------------------------------------
+    FEATURE CODE:..............1795
+    FEATURE NAME:..............High Speed Cell_FACH                    
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........446
+----------------------------------------------
+    FEATURE CODE:..............1798
+    FEATURE NAME:..............UE Periodic Measurement Report          
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........446
+----------------------------------------------
+    FEATURE CODE:..............3384
+    FEATURE NAME:..............Fast Dormancy Profiling                 
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........446
+----------------------------------------------
+    FEATURE CODE:..............3422
+    FEATURE NAME:..............Application Aware RAN                   
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........323
+----------------------------------------------
+    FEATURE CODE:..............4290
+    FEATURE NAME:..............Automatic Access Class Restriction      
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........274
+----------------------------------------------
+    FEATURE CODE:..............4293
+    FEATURE NAME:..............Fast Cell_PCH Switching                 
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........446
+----------------------------------------------
+    FEATURE CODE:..............4160
+    FEATURE NAME:..............Fast HSPA Mobility                      
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........250
+----------------------------------------------
+    FEATURE CODE:..............4492
+    FEATURE NAME:..............Mass Event Handler                      
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........250
+----------------------------------------------
+    FEATURE CODE:..............4504
+    FEATURE NAME:..............Terminal Battery Drain Prevention in Cel
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........446
+----------------------------------------------
+    FEATURE CODE:..............4545
+    FEATURE NAME:..............Voice Call Priorization during High Load
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........323
+----------------------------------------------
+    FEATURE CODE:..............4533
+    FEATURE NAME:..............High Speed Cell_FACH Uplink             
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........446
+----------------------------------------------
+    FEATURE CODE:..............627
+    FEATURE NAME:..............HSDPA Dynamic Resource Allocation       
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........446
+----------------------------------------------
+    FEATURE CODE:..............641
+    FEATURE NAME:..............Basic HSDPA with QPSK and 5 Codes       
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........446
+----------------------------------------------
+    FEATURE CODE:..............620
+    FEATURE NAME:..............HSDPA 10 Codes                          
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........446
+----------------------------------------------
+    FEATURE CODE:..............621
+    FEATURE NAME:..............HSDPA 15 Codes                          
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........446
+----------------------------------------------
+    FEATURE CODE:..............623
+    FEATURE NAME:..............HSDPA Code Multiplexing                 
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........446
+----------------------------------------------
+    FEATURE CODE:..............625
+    FEATURE NAME:..............16 kbit/s Return Channel DCH Data Rate S
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........446
+----------------------------------------------
+    FEATURE CODE:..............1028
+    FEATURE NAME:..............HSDPA 10 Mbps per User                  
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........446
+----------------------------------------------
+    FEATURE CODE:..............4348
+    FEATURE NAME:..............AMR with DCH (0,0) Support on Iur       
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........250
+----------------------------------------------
+    FEATURE CODE:..............974
+    FEATURE NAME:..............RNC Mngmt Tool for Fault Localisation   
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........446
+----------------------------------------------
+    FEATURE CODE:..............1108
+    FEATURE NAME:..............OSPF for Redundancy                     
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........446
+----------------------------------------------
+    FEATURE CODE:..............1107
+    FEATURE NAME:..............Pre-Aggregation of RCPM Data in RNC     
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........446
+----------------------------------------------
+    FEATURE CODE:..............958
+    FEATURE NAME:..............Iub throughput 1 Mbit/s                 
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........2000
+----------------------------------------------
+    FEATURE CODE:..............959
+    FEATURE NAME:..............AMR capacity 1 Erl                      
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........10000
+----------------------------------------------
+    FEATURE CODE:..............960
+    FEATURE NAME:..............Carrier connectivity                    
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........2000
+----------------------------------------------
+    FEATURE CODE:..............1306
+    FEATURE NAME:..............SSH Server                              
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........1
+----------------------------------------------
+    FEATURE CODE:..............1305
+    FEATURE NAME:..............SFTP Server                             
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........1
+----------------------------------------------
+    FEATURE CODE:..............811
+    FEATURE NAME:..............M3UA Association Set Measurement        
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........1
+----------------------------------------------
+    FEATURE CODE:..............1690
+    FEATURE NAME:..............CCH Setup                               
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........446
+----------------------------------------------
+    FEATURE CODE:..............1686
+    FEATURE NAME:..............Dual-Cell HSDPA 42Mbps                  
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........446
+----------------------------------------------
+    FEATURE CODE:..............4839
+    FEATURE NAME:..............Measurement based LTE Layering          
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........600
+----------------------------------------------
+    FEATURE CODE:..............3414
+    FEATURE NAME:..............Smart LTE Handover                      
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........600
+----------------------------------------------
+    FEATURE CODE:..............3898
+    FEATURE NAME:..............Layering in RRC Connection Release      
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........600
+----------------------------------------------
+    FEATURE CODE:..............3903
+    FEATURE NAME:..............Smart LTE Layering                      
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........600
+----------------------------------------------
+    FEATURE CODE:..............4780
+    FEATURE NAME:..............RRC Connection Setup Redirection        
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........600
+----------------------------------------------
+    FEATURE CODE:..............4783
+    FEATURE NAME:..............HSUPA Compressed Mode for LTE and Inter-
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........600
+----------------------------------------------
+    FEATURE CODE:..............628
+    FEATURE NAME:..............HSDPA Layering for UEs in CommonChannels
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........215
+----------------------------------------------
+    FEATURE CODE:..............1279
+    FEATURE NAME:..............HSDPA Inter-frequency Handover          
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........200
+----------------------------------------------
+    FEATURE CODE:..............1938
+    FEATURE NAME:..............Multi-Band Load Balancing               
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........1
+----------------------------------------------
+    FEATURE CODE:..............1796
+    FEATURE NAME:..............HSPA 128 users per cell                 
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........690
+----------------------------------------------
+    FEATURE CODE:..............1897
+    FEATURE NAME:..............Bandwidth utilization classes counters f
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........200
+----------------------------------------------
+    FEATURE CODE:..............1898
+    FEATURE NAME:..............Bandwidth utilization classes counters f
+    FEATURE STATE:.............ON
+    FEATURE CAPACITY:..........200
+
+
+COMMAND EXECUTED
+
+
+LICENCE AND FEATURE HANDLING COMMAND <W7_>
+<  
