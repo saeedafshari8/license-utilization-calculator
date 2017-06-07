@@ -37,6 +37,11 @@ public class FeatureCodeInformationUtilizationCalculator {
 				.collect(Collectors.toList())) {
 			calculate(featureInformation);
 		}
+		for (FeatureInformation featureInformation : featureInformations.stream()
+				.filter(item -> item.getFeatureState() == FeatureState.OFF || item.getCapacityUnit() == CapacityUnit.DYNAMIC_CELL || item.getCapacityUnit() == CapacityUnit.ON_OFF)
+				.collect(Collectors.toList())) {
+			featureInformation.setUtilization(featureInformation.getCapacityUnit().toString());
+		}
 	}
 
 	private void calculate(FeatureInformation featureInformation) {
