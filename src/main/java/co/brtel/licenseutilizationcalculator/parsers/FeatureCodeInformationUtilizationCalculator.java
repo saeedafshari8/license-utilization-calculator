@@ -16,10 +16,16 @@ import co.brtel.licenseutilizationcalculator.pojo.ManagedObject;
 import co.brtel.licenseutilizationcalculator.pojo.Parameter;
 
 public class FeatureCodeInformationUtilizationCalculator {
+	private static final String BTS_SUPPORT_FOR_HSPACM_DISABLED = "Only DCH CM for IFHO, LTE and GSM";
 	private Map<String, List<ManagedObject>> managedObjectsMap;
+	private String LTE_LAYERING_MEAS_ACTIVATION = "Measurement for all triggers";
+	private String PS_RAB_SUPPORTED = "PS RAB Reconfiguration is supported";
+	private String TQM_NOT_CONNECTED = "TQM object is not connected to the WBTS";
+	private String OVERBOOKING_ON = "Overbooking ON";
 	private static final String ENABLED = "Enabled";
 	private static final String SUPPORTED = "Supported";
 	private static final String WCEL = "WCEL";
+	private static final String USED = "USED";
 	private static final String WBTS = "WBTS";
 	public static final String NO_DOC_AVAILABLE = "No document available!";
 	public static final String NOT_USED_IN_NETWORK = "Not used in network";
@@ -59,9 +65,80 @@ public class FeatureCodeInformationUtilizationCalculator {
 		case NONE:
 			calculateUtilizationForNoneObjectType(featureInformation);
 			break;
+		case WBTS:
+			calculateUtilizationBasedOnWbts(featureInformation);
+			break;
 		default:
 			break;
 		}
+	}
+
+	private void calculateUtilizationBasedOnWbts(FeatureInformation featureInformation) {
+		String rncName = featureInformation.getRnc().getName();
+		long count = 0;
+		List<ManagedObject> wbtses = managedObjectsMap.get(featureInformation.getRnc().getName()).stream().filter(item -> item.getClassName().equalsIgnoreCase(WBTS))
+				.collect(Collectors.toList());
+
+		if (featureInformation.getCode().equals("633")) {
+			// TODO : Value is not mentioned
+			for (ManagedObject wbts : wbtses) {
+				if (getParameterValue(wbts, "OverbookingSwitch").equalsIgnoreCase(OVERBOOKING_ON ))
+					count++;
+			}
+		} else if (featureInformation.getCode().equals("641")) {
+			for (ManagedObject wbts : wbtses) {
+				count++;
+			}
+		} else if (featureInformation.getCode().equals("1085")) {
+			for (ManagedObject wbts : wbtses) {
+				if (getParameterValue(wbts, "HSDPA14MbpsPerUser").equalsIgnoreCase(ENABLED))
+					count++;
+			}
+		} else if (featureInformation.getCode().equals("1088")) {
+			for (ManagedObject wbts : wbtses) {
+				if (getParameterValue(wbts, "HSUPAXUsersEnabled").contains("60"))
+					count++;
+			}
+		} else if (featureInformation.getCode().equals("1092")) {
+			for (ManagedObject wbts : wbtses) {
+				if (getParameterValue(wbts, "NodeBRABReconfigSupport").equalsIgnoreCase(PS_RAB_SUPPORTED)){
+					count = getWCellCount(wbts, rncName);
+				}
+			}
+		} else if (featureInformation.getCode().equals("1093")) {
+			for (ManagedObject wbts : wbtses) {
+				if (getParameterValue(wbts, "HSDPACCEnabled").equalsIgnoreCase(ENABLED))
+					count++;
+			}
+		} else if (featureInformation.getCode().equals("1247")) {
+			for (ManagedObject wbts : wbtses) {
+				if (!getParameterValue(wbts, "TQMId").equalsIgnoreCase(TQM_NOT_CONNECTED ))
+					count++;
+			}
+		} else if (featureInformation.getCode().equals("1279")) {
+			Optional<ManagedObject> opt = managedObjectsMap.get(rncName).stream().filter(item -> item.getClassName().equalsIgnoreCase("RNFC")).findAny();
+			if (!opt.isPresent())
+				return;
+			ManagedObject rnfc = opt.get();
+			if (getParameterValue(rnfc, "CMmasterSwitch").equalsIgnoreCase(USED)) {
+				for (ManagedObject wbts : wbtses) {
+					if (!getParameterValue(wbts, "BTSSupportForHSPACM").equalsIgnoreCase(BTS_SUPPORT_FOR_HSPACM_DISABLED))
+						count += getWCellCount(wbts, rncName);
+				}
+			}
+		} else if (featureInformation.getCode().equals("1303")) {
+			for (ManagedObject wbts : wbtses) {
+				if (getParameterValue(wbts, "SatelliteIubUsage").equalsIgnoreCase(ENABLED))
+					count++;
+			}
+		} else if (featureInformation.getCode().equals("4783")) {
+			for (ManagedObject wbts : wbtses) {
+				if (!getParameterValue(wbts, "BTSSupportForHSPACM").equalsIgnoreCase(BTS_SUPPORT_FOR_HSPACM_DISABLED))
+					count++;
+			}
+		}
+
+		featureInformation.setUtilization(new Long(count).toString());
 	}
 	
 	private void calculateUtilizationForNoneObjectType(FeatureInformation featureInformation) {
@@ -109,9 +186,9 @@ public class FeatureCodeInformationUtilizationCalculator {
 	}
 
 	private String getParameterValue(ManagedObject managedObject, String name) {
-		Optional<Parameter> hSUPAEnabled = Arrays.stream(managedObject.getParameters()).filter(item -> item.getName().equalsIgnoreCase(name)).findAny();
-		if (hSUPAEnabled.isPresent())
-			return hSUPAEnabled.get().getValue();
+		Optional<Parameter> parameter = Arrays.stream(managedObject.getParameters()).filter(item -> item.getName().equalsIgnoreCase(name)).findAny();
+		if (parameter.isPresent())
+			return parameter.get().getValue();
 		return "";
 	}
 
@@ -273,13 +350,14 @@ public class FeatureCodeInformationUtilizationCalculator {
 			}
 		} else if (featureInformation.getCode().equals("4545")) {
 			for (ManagedObject wcell : wcells) {
-				if (getParameterValue(wcell, "VoiceCallPriority").equalsIgnoreCase(ENABLED)) {
+				if (getParameterValue(wcell, "VoiceCallPriority").equalsIgnoreCase(ENABLED) && getParameterValue(wcell, "HSRACHEnabled").equalsIgnoreCase(ENABLED)) {
 					count++;
 				}
 			}
 		} else if (featureInformation.getCode().equals("4839")) {
 			for (ManagedObject wcell : wcells) {
-				if (getParameterValue(wcell, "SmartLTELayeringEnabled").toLowerCase().contains(ENABLED.toLowerCase()))
+				if (getParameterValue(wcell, "SmartLTELayeringEnabled").toLowerCase().contains(ENABLED.toLowerCase()) 
+						&& getParameterValue(wcell, "LTELayeringMeasActivation").equals(LTE_LAYERING_MEAS_ACTIVATION ))
 					count++;
 			}
 		}
@@ -365,6 +443,6 @@ public class FeatureCodeInformationUtilizationCalculator {
 	}
 	
 	private long getWCellCount(ManagedObject wbts, String rncName) {
-		return managedObjectsMap.get(rncName).stream().filter(item -> item.getClassName().equalsIgnoreCase(WBTS)).filter(item -> item.getDistName().contains(wbts.getDistName())).count();
+		return managedObjectsMap.get(rncName).stream().filter(item -> item.getClassName().equalsIgnoreCase(WCEL)).filter(item -> item.getDistName().contains(wbts.getDistName())).count();
 	}
 }
