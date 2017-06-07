@@ -60,11 +60,12 @@ public class FeatureCodeInformationUtilizationCalculator {
 	}
 
 	private void calculateUtilizationBasedOnWcell(FeatureInformation featureInformation) {
+		String rncName = featureInformation.getRnc().getName();
 		long count = 0;
-		List<ManagedObject> wcells = managedObjectsMap.get(featureInformation.getRnc().getName()).stream().filter(item -> item.getClassName().equalsIgnoreCase(WCEL))
+		List<ManagedObject> wcells = managedObjectsMap.get(rncName).stream().filter(item -> item.getClassName().equalsIgnoreCase(WCEL))
 				.collect(Collectors.toList());
 		if (featureInformation.getCode().equals("638") || featureInformation.getCode().equals("966")) {
-			count = managedObjectsMap.get(featureInformation.getRnc().getName()).stream().filter(item -> item.getClassName().equalsIgnoreCase(WCEL)).count();
+			count = getWCellCount(rncName);
 		} else if (featureInformation.getCode().equals("961") || featureInformation.getCode().equals("962")) {
 			Map<String, Boolean> tmpMap = new HashMap<>();
 			for (ManagedObject wcell : wcells) {
@@ -81,23 +82,29 @@ public class FeatureCodeInformationUtilizationCalculator {
 					count++;
 			}
 		} else if (featureInformation.getCode().equals("1087")) {
-
+			Map<String, Boolean> tmpMap = new HashMap<>();
 			for (ManagedObject wcell : wcells) {
-				if (getParameterValue(wcell, "HSDPA64UsersEnabled").equalsIgnoreCase(ENABLED))
-					count++;
+				String hSDPA64UsersEnabled = getParameterValue(wcell, "HSDPA64UsersEnabled");
+				if (hSDPA64UsersEnabled.equalsIgnoreCase(ENABLED))
+					tmpMap.put(Arrays.stream(wcell.getDistName().split("/")).filter(item -> item.startsWith(WBTS)).findAny().get(), true);
 			}
+			count = tmpMap.size();
 		} else if (featureInformation.getCode().equals("1089")) {
+			Map<String, Boolean> tmpMap = new HashMap<>();
 			for (ManagedObject wcell : wcells) {
-				if (getParameterValue(wcell, "HSPAQoSEnabled").equalsIgnoreCase(ENABLED)) {
-					count++;
-				}
+				String hSPAQoSEnabled = getParameterValue(wcell, "HSPAQoSEnabled");
+				if (hSPAQoSEnabled.equalsIgnoreCase(ENABLED))
+					tmpMap.put(Arrays.stream(wcell.getDistName().split("/")).filter(item -> item.startsWith(WBTS)).findAny().get(), true);
 			}
+			count = tmpMap.size();
 		} else if (featureInformation.getCode().equals("1091")) {
+			Map<String, Boolean> tmpMap = new HashMap<>();
 			for (ManagedObject wcell : wcells) {
-				if (getParameterValue(wcell, "HspaMultiNrtRabSupport").equalsIgnoreCase(SUPPORTED)) {
-					count++;
-				}
+				String hSPAQoSEnabled = getParameterValue(wcell, "HspaMultiNrtRabSupport");
+				if (hSPAQoSEnabled.equalsIgnoreCase(SUPPORTED))
+					tmpMap.put(Arrays.stream(wcell.getDistName().split("/")).filter(item -> item.startsWith(WBTS)).findAny().get(), true);
 			}
+			count = tmpMap.size();
 		} else if (featureInformation.getCode().equals("1471")) {
 			for (ManagedObject wcell : wcells) {
 				if (getParameterValue(wcell, "HSDPA64QAMallowed").equalsIgnoreCase(ENABLED)) {
@@ -293,7 +300,15 @@ public class FeatureCodeInformationUtilizationCalculator {
 		featureInformation.setUtilization(new Long(count).toString());
 	}
 
+	private long getWbtsCount(String rncName) {
+		return managedObjectsMap.get(rncName).stream().filter(item -> item.getClassName().equalsIgnoreCase(WBTS)).count();
+	}
+	
 	private long getWCellCount(String rncName) {
 		return managedObjectsMap.get(rncName).stream().filter(item -> item.getClassName().equalsIgnoreCase(WCEL)).count();
+	}
+	
+	private long getWCellCount(ManagedObject wbts, String rncName) {
+		return managedObjectsMap.get(rncName).stream().filter(item -> item.getClassName().equalsIgnoreCase(WBTS)).filter(item -> item.getDistName().contains(wbts.getDistName())).count();
 	}
 }

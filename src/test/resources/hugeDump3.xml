@@ -87,6 +87,13 @@
 	  <p name="VoiceCallPriority">Disabled</p>
 	  <p name="SmartLTELayeringEnabled">disabled for all triggers</p>
 	  <p name="LTECellReselection">Disabled</p>
+	  <p name="HSDPA14MbpsPerUser">Disabled</p>
+	  <p name="HSUPAXUsersEnabled">60 users enabled</p>
+	  <p name="NodeBRABReconfigSupport">PS RAB Reconfiguration is not supported</p>
+	  <p name="HSDPACCEnabled">Disabled</p>
+	  <p name="TQMId">TQM object is not connected to the WBTS</p>
+	  <p name="SatelliteIubUsage">Disabled</p>
+	  <p name="BTSSupportForHSPACM">Only DCH CM for IFHO, LTE and GSM</p>
     </managedObject>
     <managedObject class="WCEL" version="RNC16" distName="PLMN-PLMN/RNC-841/WBTS-3200/WCEL-1772" id="100617">
       <p name="DCellHSDPAEnabled">Disabled</p>
@@ -118,6 +125,13 @@
 	  <p name="VoiceCallPriority">Enabled</p>
 	  <p name="SmartLTELayeringEnabled">enabled for all triggers</p>
 	  <p name="LTECellReselection">Enabled</p>
+	  <p name="HSDPA14MbpsPerUser">Enabled</p>
+	  <p name="HSUPAXUsersEnabled">60 users enabled</p>
+	  <p name="NodeBRABReconfigSupport">PS RAB Reconfiguration is not supported</p>
+	  <p name="HSDPACCEnabled">Enabled</p>
+	  <p name="TQMId">TQM object is not connected to the WBTS</p>
+	  <p name="BTSSupportForHSPACM">HSDPA CM for IFHO and LTE</p>
+	  <p name="SatelliteIubUsage">Enabled</p>
     </managedObject>
   </cmData>
 </raml>
