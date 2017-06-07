@@ -227,5 +227,9 @@
       <p name="WinLCHSDPA">5</p>
       <p name="WinLCHSUPA">5</p>
     </managedObject>
+    <managedObject class="RNHSPA" version="RNC16" distName="PLMN-PLMN/RNC-841/RNHSPA-1" id="655124">
+      <defaults name="System"/>
+      <p name="MaxBitRateNRTMACDFlow">9611</p>
+    </managedObject>
   </cmData>
 </raml>

@@ -154,4 +154,13 @@ public class FeatureCodeInformationUtilizationCalculatorTests {
 		Assert.assertEquals("1", rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("1247")).findAny().get().getUtilization());
 		Assert.assertEquals("2", rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("1279")).findAny().get().getUtilization());
 	}
+	
+	@Test
+	public void testCalculateUtilizationBasedOnRNHSPA() {
+		for (String key : rncsFeaturesMap.keySet()) {
+			utilizationCalculator.calculateUtilization(rncsFeaturesMap.get(key));
+		}
+		String rnc841Name = "R841N";
+		Assert.assertEquals("2", rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("1028")).findAny().get().getUtilization());
+	}
 }

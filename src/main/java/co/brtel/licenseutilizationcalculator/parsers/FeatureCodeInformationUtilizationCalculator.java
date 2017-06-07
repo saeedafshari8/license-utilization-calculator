@@ -9,10 +9,13 @@ import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import org.apache.commons.lang3.math.NumberUtils;
+
 import co.brtel.licenseutilizationcalculator.pojo.CapacityUnit;
 import co.brtel.licenseutilizationcalculator.pojo.FeatureInformation;
 import co.brtel.licenseutilizationcalculator.pojo.FeatureState;
 import co.brtel.licenseutilizationcalculator.pojo.ManagedObject;
+import co.brtel.licenseutilizationcalculator.pojo.ManagedObjectType;
 import co.brtel.licenseutilizationcalculator.pojo.Parameter;
 
 public class FeatureCodeInformationUtilizationCalculator {
@@ -68,9 +71,33 @@ public class FeatureCodeInformationUtilizationCalculator {
 		case WBTS:
 			calculateUtilizationBasedOnWbts(featureInformation);
 			break;
+		case RNHSPA:
+			calculateUtilizationBasedOnRNHSPA(featureInformation);
+			break;
 		default:
 			break;
 		}
+	}
+
+	private void calculateUtilizationBasedOnRNHSPA(FeatureInformation featureInformation) {
+		long count = 0;
+		String rncName = featureInformation.getRnc().getName();
+		
+		Optional<ManagedObject> opt = managedObjectsMap.get(rncName).stream().filter(item -> item.getClassName().equalsIgnoreCase(ManagedObjectType.RNHSPA.toString())).findAny();
+		if (!opt.isPresent())
+			return;
+		ManagedObject managedObject = opt.get();
+		
+		if (featureInformation.getCode().equals("1028")) {
+			String max = getParameterValue(managedObject, "MaxBitRateNRTMACDFlow");
+			if(NumberUtils.isCreatable(max)){
+				Integer tmp = new Integer(max);
+				if(tmp == 0 || tmp > 9600)
+					count = getWCellCount(rncName);
+			}
+		}
+		if(featureInformation.getUtilization().equals(FeatureInformation.DEFAULT_UTILIZATION))
+			featureInformation.setUtilization(new Long(count).toString());
 	}
 
 	private void calculateUtilizationBasedOnWbts(FeatureInformation featureInformation) {

@@ -16,6 +16,9 @@ public class FeatureInformation {
 	private FeatureState featureState;
 	private int capacity;
 	private static final Map<String, CapacityUnit> capacityUnitMap;
+	private static final Map<String, ManagedObjectType> managedObjectTypeMap;
+	public static final String DEFAULT_UTILIZATION = "-1";
+	
 	static {
 		Map<String, CapacityUnit> aMap = new HashMap<String, CapacityUnit>();
 		aMap.put("619", CapacityUnit.CELL);
@@ -120,7 +123,6 @@ public class FeatureInformation {
 		capacityUnitMap = Collections.unmodifiableMap(aMap);
 	}
 	
-	private static final Map<String, ManagedObjectType> managedObjectTypeMap;
 	static {
 		Map<String, ManagedObjectType> aMap = new HashMap<>();
 		aMap.put("619", ManagedObjectType.NONE);
@@ -267,7 +269,7 @@ public class FeatureInformation {
 	}
 
 	public String getUtilization() {
-		return utilization == null ? "-1" : utilization;
+		return utilization == null ? DEFAULT_UTILIZATION : utilization;
 	}
 
 	public void setUtilization(String utilization) {
