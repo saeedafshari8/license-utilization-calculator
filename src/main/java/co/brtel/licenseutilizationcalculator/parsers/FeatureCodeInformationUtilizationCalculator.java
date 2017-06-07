@@ -21,6 +21,10 @@ public class FeatureCodeInformationUtilizationCalculator {
 	private static final String SUPPORTED = "Supported";
 	private static final String WCEL = "WCEL";
 	private static final String WBTS = "WBTS";
+	public static final String NO_DOC_AVAILABLE = "No document available!";
+	public static final String NOT_USED_IN_NETWORK = "Not used in network";
+	public static final String NA = "N/A";
+	public static final String COUNTER_NO_CALCULATION = "Counter, no calculation";
 
 	public FeatureCodeInformationUtilizationCalculator(List<ManagedObject> managedObjects, Set<String> rncNames) {
 		managedObjectsMap = new HashMap<String, List<ManagedObject>>();
@@ -52,9 +56,56 @@ public class FeatureCodeInformationUtilizationCalculator {
 		case WCEL:
 			calculateUtilizationBasedOnWcell(featureInformation);
 			break;
+		case NONE:
+			calculateUtilizationForNoneObjectType(featureInformation);
+			break;
 		default:
 			break;
 		}
+	}
+	
+	private void calculateUtilizationForNoneObjectType(FeatureInformation featureInformation) {
+		final String rncName = featureInformation.getRnc().getName();
+		List<ManagedObject> wcells = managedObjectsMap.get(rncName).stream().filter(item -> item.getClassName().equalsIgnoreCase(WCEL))
+				.collect(Collectors.toList());
+		long count = 0;
+		if (featureInformation.getCode().equals("625")) {
+			count = 0;
+		} else if (featureInformation.getCode().equals("969")) {
+			count = 0;
+		} else if (featureInformation.getCode().equals("974")) {
+			count = getWCellCount(rncName);
+		} else if (featureInformation.getCode().equals("1029")) {
+			count = getWbtsCount(rncName);
+		} else if (featureInformation.getCode().equals("1030")) {
+			count = getWCellCount(rncName);
+		} else if (featureInformation.getCode().equals("1057")) {
+			count = 0;
+		} else if (featureInformation.getCode().equals("1079")) {
+			count = getWbtsCount(rncName);
+		} else if (featureInformation.getCode().equals("1107")) {
+			featureInformation.setUtilization(NO_DOC_AVAILABLE);
+		} else if (featureInformation.getCode().equals("1110")) {
+			featureInformation.setUtilization(NO_DOC_AVAILABLE);
+		} else if (featureInformation.getCode().equals("1246")) {
+			featureInformation.setUtilization(NOT_USED_IN_NETWORK);
+		} else if (featureInformation.getCode().equals("1435")) {
+			featureInformation.setUtilization(NA);
+		} else if (featureInformation.getCode().equals("1490")) {
+			featureInformation.setUtilization(NO_DOC_AVAILABLE);
+		} else if (featureInformation.getCode().equals("1683")) {
+			featureInformation.setUtilization(NO_DOC_AVAILABLE);
+		} else if (featureInformation.getCode().equals("1897")) {
+			featureInformation.setUtilization(NO_DOC_AVAILABLE);
+		} else if (featureInformation.getCode().equals("1898")) {
+			featureInformation.setUtilization(NOT_USED_IN_NETWORK);
+		} else if (featureInformation.getCode().equals("1938")) {
+			count = 0;
+		} else if (featureInformation.getCode().equals("2117")) {
+			featureInformation.setUtilization(COUNTER_NO_CALCULATION);
+		}
+		if(featureInformation.getUtilization() == "-1")
+			featureInformation.setUtilization(new Long(count).toString());
 	}
 
 	private String getParameterValue(ManagedObject managedObject, String name) {
