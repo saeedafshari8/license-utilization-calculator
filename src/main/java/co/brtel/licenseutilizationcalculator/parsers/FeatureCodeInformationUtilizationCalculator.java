@@ -35,6 +35,7 @@ public class FeatureCodeInformationUtilizationCalculator {
 	public static final String NA = "N/A";
 	public static final String COUNTER_NO_CALCULATION = "Counter, no calculation";
 	private static final String FMCG = "FMCG";
+	private static final String RNMOBI = "RNMOBI";
 
 	public FeatureCodeInformationUtilizationCalculator(List<ManagedObject> managedObjects, Set<String> rncNames) {
 		managedObjectsMap = new HashMap<String, List<ManagedObject>>();
@@ -78,9 +79,33 @@ public class FeatureCodeInformationUtilizationCalculator {
 		case FMCG:
 			calculateUtilizationBasedOnFMCG(featureInformation);
 			break;
+		case RNMOBI:
+			calculateUtilizationBasedOnRNMOBI(featureInformation);
+			break;
 		default:
 			break;
 		}
+	}
+
+	private void calculateUtilizationBasedOnRNMOBI(FeatureInformation featureInformation) {
+		long count = 0;
+		String rncName = featureInformation.getRnc().getName();
+		Optional<ManagedObject> rnmobi = managedObjectsMap.get(rncName).stream().filter(item -> item.getClassName().equalsIgnoreCase(RNMOBI)).findAny();
+
+		if (!rnmobi.isPresent())
+			return;
+
+		if (featureInformation.getCode().equals("628")) {
+			if (getParameterValue(rnmobi.get(), "DirectedRRCForHSDPALayerEnhanc").equalsIgnoreCase(ENABLED)) {
+				for (ManagedObject wcell : managedObjectsMap.get(rncName).stream().filter(item -> item.getClassName().equalsIgnoreCase(WCEL)).collect(Collectors.toList())) {
+					if (getParameterValue(wcell, "HSDPALayeringCommonChEnabled").equalsIgnoreCase(ENABLED)) {
+						count++;
+					}
+				}
+			}
+		}
+		if (featureInformation.getUtilization().equals(FeatureInformation.DEFAULT_UTILIZATION))
+			featureInformation.setUtilization(new Long(count).toString());
 	}
 
 	private void calculateUtilizationBasedOnFMCG(FeatureInformation featureInformation) {

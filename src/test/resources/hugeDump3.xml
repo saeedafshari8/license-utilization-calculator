@@ -92,6 +92,7 @@
 	  <p name="HSRACHEnabled">Disabled</p>
 	  <p name="LTELayeringMeasActivation">Measurement for periodic trigger</p>
 	  <p name="RtFmcgIdentifier">31</p>
+	  <p name="HSDPALayeringCommonChEnabled">Enabled</p>
     </managedObject>
     <managedObject class="WCEL" version="RNC16" distName="PLMN-PLMN/RNC-841/WBTS-3200/WCEL-1772" id="100617">
       <p name="DCellHSDPAEnabled">Disabled</p>
@@ -128,6 +129,7 @@
 	  <p name="HSRACHEnabled">Enabled</p>
 	  <p name="LTELayeringMeasActivation">Measurement for all triggers</p>
 	  <p name="RtFmcgIdentifier">32</p>
+	  <p name="HSDPALayeringCommonChEnabled">Enabled</p>
     </managedObject>
     <managedObject class="WBTS" version="RNC16" distName="PLMN-PLMN/RNC-841/WBTS-3200" id="3196706">
       <p name="DLCECapacity">0</p>
@@ -236,6 +238,9 @@
     <managedObject class="FMCG" version="RNC16" distName="PLMN-PLMN/RNC-841/FMCG-31" id="2030466">
       <defaults name="System"/>
       <p name="AMRDirReCell">Enabled</p>
+    </managedObject>
+    <managedObject class="RNMOBI" version="RNC16" distName="PLMN-PLMN/RNC-841/RNMOBI-1" id="146571">
+      <p name="DirectedRRCForHSDPALayerEnhanc">Enabled</p>
     </managedObject>
   </cmData>
 </raml>
