@@ -34,6 +34,7 @@ public class FeatureCodeInformationUtilizationCalculator {
 	public static final String NOT_USED_IN_NETWORK = "Not used in network";
 	public static final String NA = "N/A";
 	public static final String COUNTER_NO_CALCULATION = "Counter, no calculation";
+	private static final String FMCG = "FMCG";
 
 	public FeatureCodeInformationUtilizationCalculator(List<ManagedObject> managedObjects, Set<String> rncNames) {
 		managedObjectsMap = new HashMap<String, List<ManagedObject>>();
@@ -74,9 +75,37 @@ public class FeatureCodeInformationUtilizationCalculator {
 		case RNHSPA:
 			calculateUtilizationBasedOnRNHSPA(featureInformation);
 			break;
+		case FMCG:
+			calculateUtilizationBasedOnFMCG(featureInformation);
+			break;
 		default:
 			break;
 		}
+	}
+
+	private void calculateUtilizationBasedOnFMCG(FeatureInformation featureInformation) {
+		long count = 0;
+		String rncName = featureInformation.getRnc().getName();
+		List<ManagedObject> fmcgs = managedObjectsMap.get(rncName).stream().filter(item -> item.getClassName().equalsIgnoreCase(FMCG))
+				.collect(Collectors.toList());
+
+		if (featureInformation.getCode().equals("1302")) {
+			for (ManagedObject fmcg : fmcgs) {
+				if (getParameterValue(fmcg, "AMRDirReCell").equalsIgnoreCase(ENABLED)) {
+					Optional<String> fmcgId = Arrays.stream(fmcg.getDistName().split("/")).filter(item -> item.startsWith(FMCG)).map(item -> item.replace(FMCG + "-", ""))
+							.findAny();
+					if (fmcgId.isPresent()) {
+						for (ManagedObject wcell : managedObjectsMap.get(featureInformation.getRnc().getName()).stream().filter(item -> item.getClassName().equalsIgnoreCase(WCEL))
+								.collect(Collectors.toList())) {
+							if (getParameterValue(wcell, "RtFmcgIdentifier").equalsIgnoreCase(fmcgId.get()))
+								count++;
+						}
+					}
+				}
+			}
+		}
+		if (featureInformation.getUtilization().equals(FeatureInformation.DEFAULT_UTILIZATION))
+			featureInformation.setUtilization(new Long(count).toString());
 	}
 
 	private void calculateUtilizationBasedOnRNHSPA(FeatureInformation featureInformation) {
