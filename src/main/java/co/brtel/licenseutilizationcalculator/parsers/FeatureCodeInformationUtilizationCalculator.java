@@ -36,6 +36,7 @@ public class FeatureCodeInformationUtilizationCalculator {
 	public static final String COUNTER_NO_CALCULATION = "Counter, no calculation";
 	private static final String FMCG = "FMCG";
 	private static final String RNMOBI = "RNMOBI";
+	private static final String MAX_TOTAL_UPLINKS = "5760 kbps, 2*SF2 + 2*SF4";
 
 	public FeatureCodeInformationUtilizationCalculator(List<ManagedObject> managedObjects, Set<String> rncNames) {
 		managedObjectsMap = new HashMap<String, List<ManagedObject>>();
@@ -162,8 +163,8 @@ public class FeatureCodeInformationUtilizationCalculator {
 
 		if (featureInformation.getCode().equals("633")) {
 			for (ManagedObject wbts : wbtses) {
-				if (getParameterValue(wbts, "OverbookingSwitch").equalsIgnoreCase(OVERBOOKING_ON ))
-					count++;
+				if (getParameterValue(wbts, "OverbookingSwitch").equalsIgnoreCase(OVERBOOKING_ON))
+					count += getWCellCount(wbts, rncName);
 			}
 		} else if (featureInformation.getCode().equals("641")) {
 			for (ManagedObject wbts : wbtses) {
@@ -293,7 +294,7 @@ public class FeatureCodeInformationUtilizationCalculator {
 			for (ManagedObject wcell : wcells) {
 				String hSUPAEnabled = getParameterValue(wcell, "HSUPA2MSTTIEnabled");
 				String maxTotalUplinkSymbolRate = getParameterValue(wcell, "MaxTotalUplinkSymbolRate");
-				if (hSUPAEnabled.equalsIgnoreCase(ENABLED) && maxTotalUplinkSymbolRate.equalsIgnoreCase("5760 kbps, 2*SF2 + 2*SF4"))
+				if (hSUPAEnabled.equalsIgnoreCase(ENABLED) && maxTotalUplinkSymbolRate.equalsIgnoreCase(MAX_TOTAL_UPLINKS))
 					count++;
 			}
 		} else if (featureInformation.getCode().equals("1087")) {
