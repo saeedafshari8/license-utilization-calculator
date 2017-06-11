@@ -195,7 +195,7 @@ public class FeatureInformation {
 		aMap.put("1684", ManagedObjectType.COMMAND_ZQRL);
 		aMap.put("1686", ManagedObjectType.RNFC);
 		aMap.put("1690", ManagedObjectType.RNFC);
-		aMap.put("1754", ManagedObjectType.COMMAND);
+		aMap.put("1754", ManagedObjectType.WCEL);
 		aMap.put("1755", ManagedObjectType.WCEL);
 		aMap.put("1756", ManagedObjectType.WCEL);
 		aMap.put("1795", ManagedObjectType.WCEL);

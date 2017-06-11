@@ -101,6 +101,7 @@ public class FeatureCodeInformationUtilizationCalculatorTests {
 		Assert.assertEquals("1", rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("4538")).findAny().get().getUtilization());
 		Assert.assertEquals("1", rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("4545")).findAny().get().getUtilization());
 		Assert.assertEquals("1", rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("4839")).findAny().get().getUtilization());
+		Assert.assertEquals("2", rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("1754")).findAny().get().getUtilization());
 	}
 	
 	@Test

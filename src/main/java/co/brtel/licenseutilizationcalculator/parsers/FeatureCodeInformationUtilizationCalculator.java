@@ -430,6 +430,8 @@ public class FeatureCodeInformationUtilizationCalculator {
 					count++;
 				}
 			}
+		} else if (featureInformation.getCode().equals("1754")) {
+			count = wcells.size();
 		} else if (featureInformation.getCode().equals("1755")) {
 			for (ManagedObject wcell : wcells) {
 				if (getParameterValue(wcell, "LTECellReselection").equalsIgnoreCase(ENABLED)) {
