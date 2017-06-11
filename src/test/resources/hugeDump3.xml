@@ -269,5 +269,9 @@
     <managedObject class="FMCS" version="RNC16" distName="PLMN-PLMN/RNC-841/FMCS-3" id="2030466">
       <p name="DSRepBasedSHO">DSR based SHO is enabled</p>
     </managedObject>
+    <managedObject class="RNC" version="RNC16" distName="PLMN-PLMN/RNC-841" id="100250">
+      <p name="LCSfunctionality">Enabled</p>
+      <p name="TraceLCSWaitPeriod">5</p>
+    </managedObject>
   </cmData>
 </raml>

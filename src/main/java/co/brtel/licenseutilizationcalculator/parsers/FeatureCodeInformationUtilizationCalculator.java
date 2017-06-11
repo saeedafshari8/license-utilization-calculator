@@ -40,6 +40,8 @@ public class FeatureCodeInformationUtilizationCalculator {
 	private static final String FMCS = "FMCS";
 	private static final String DS_REP_BASED_SHO_ENABLED = "DSR based SHO is enabled";
 	private static final String PFL_IDENTIFIER_DISABLED = "No reference to PFL object";
+	private static final String RNC = "RNC";
+	private static final String DISABLED = "Disabled";
 
 	public FeatureCodeInformationUtilizationCalculator(List<ManagedObject> managedObjects, Set<String> rncNames) {
 		managedObjectsMap = new HashMap<String, List<ManagedObject>>();
@@ -89,9 +91,31 @@ public class FeatureCodeInformationUtilizationCalculator {
 		case FMCS:
 			calculateUtilizationBasedOnFMCS(featureInformation);
 			break;
+		case RNC:
+			calculateUtilizationBasedOnRNC(featureInformation);
+			break;
 		default:
 			break;
 		}
+	}
+	
+	private void calculateUtilizationBasedOnRNC(FeatureInformation featureInformation) {
+		long count = 0;
+		String rncName = featureInformation.getRnc().getName();
+		Optional<ManagedObject> rnc = managedObjectsMap.get(rncName).stream().filter(item -> item.getClassName().equalsIgnoreCase(RNC)).findAny();
+		if(!rnc.isPresent())
+			return;
+		if (featureInformation.getCode().equals("1375")) {
+			if(getParameterValue(rnc.get(), "LCSfunctionality").equalsIgnoreCase(ENABLED)){
+				count = getWCellCount(rnc.get(), rncName);
+			}
+		}else if (featureInformation.getCode().equals("1434")) {
+			if(!getParameterValue(rnc.get(), "TraceLCSWaitPeriod").equalsIgnoreCase(DISABLED)){
+				count = getWCellCount(rnc.get(), rncName);
+			}
+		}
+		if (featureInformation.getUtilization().equals(FeatureInformation.DEFAULT_UTILIZATION))
+			featureInformation.setUtilization(new Long(count).toString());
 	}
 	
 	private void calculateUtilizationBasedOnFMCS(FeatureInformation featureInformation) {
