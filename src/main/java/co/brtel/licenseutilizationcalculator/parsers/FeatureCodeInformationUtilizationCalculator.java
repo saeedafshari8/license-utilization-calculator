@@ -161,7 +161,6 @@ public class FeatureCodeInformationUtilizationCalculator {
 				.collect(Collectors.toList());
 
 		if (featureInformation.getCode().equals("633")) {
-			// TODO : Value is not mentioned
 			for (ManagedObject wbts : wbtses) {
 				if (getParameterValue(wbts, "OverbookingSwitch").equalsIgnoreCase(OVERBOOKING_ON ))
 					count++;
@@ -215,7 +214,7 @@ public class FeatureCodeInformationUtilizationCalculator {
 		} else if (featureInformation.getCode().equals("4783")) {
 			for (ManagedObject wbts : wbtses) {
 				if (!getParameterValue(wbts, "BTSSupportForHSPACM").equalsIgnoreCase(BTS_SUPPORT_FOR_HSPACM_DISABLED))
-					count++;
+					count += getWCellCount(wbts, rncName);
 			}
 		}
 
@@ -292,7 +291,7 @@ public class FeatureCodeInformationUtilizationCalculator {
 			for (ManagedObject wcell : wcells) {
 				String hSUPAEnabled = getParameterValue(wcell, "HSUPA2MSTTIEnabled");
 				String maxTotalUplinkSymbolRate = getParameterValue(wcell, "MaxTotalUplinkSymbolRate");
-				if (hSUPAEnabled.equalsIgnoreCase(ENABLED) && maxTotalUplinkSymbolRate.equalsIgnoreCase("3"))
+				if (hSUPAEnabled.equalsIgnoreCase(ENABLED) && maxTotalUplinkSymbolRate.equalsIgnoreCase("5760 kbps, 2*SF2 + 2*SF4"))
 					count++;
 			}
 		} else if (featureInformation.getCode().equals("1087")) {
@@ -347,7 +346,7 @@ public class FeatureCodeInformationUtilizationCalculator {
 		} else if (featureInformation.getCode().equals("1497")) {
 			for (ManagedObject wcell : wcells) {
 				// TODO: 1 cell found!
-				if (getParameterValue(wcell, "HSUPA16QAMAllowed").equalsIgnoreCase(ENABLED) && getParameterValue(wcell, "MaxTotalUplinkSymbolRate").equalsIgnoreCase("3")) {
+				if (getParameterValue(wcell, "HSUPA16QAMAllowed").equalsIgnoreCase(ENABLED) && getParameterValue(wcell, "MaxTotalUplinkSymbolRate").equalsIgnoreCase("5760 kbps, 2*SF2 + 2*SF4")) {
 					count++;
 				}
 			}
@@ -524,6 +523,6 @@ public class FeatureCodeInformationUtilizationCalculator {
 	}
 	
 	private long getWCellCount(ManagedObject wbts, String rncName) {
-		return managedObjectsMap.get(rncName).stream().filter(item -> item.getClassName().equalsIgnoreCase(WCEL)).filter(item -> item.getDistName().contains(wbts.getDistName())).count();
+		return managedObjectsMap.get(rncName).stream().filter(item -> item.getClassName().equalsIgnoreCase(WCEL)).filter(item -> item.getDistName().contains(wbts.getDistName() + "/")).count();
 	}
 }

@@ -99,7 +99,7 @@
       <p name="CCHSetupEnabled">Disabled</p>
 	  <p name="HSUPAEnabled">Enabled</p>
 	  <p name="HSUPA2MSTTIEnabled">Enabled</p>
-	  <p name="MaxTotalUplinkSymbolRate">3</p>
+	  <p name="MaxTotalUplinkSymbolRate">5760 kbps, 2*SF2 + 2*SF4</p>
 	  <p name="HSDPA64UsersEnabled">Enabled</p>
 	  <p name="HSPAQoSEnabled">Enabled</p>
 	  <p name="HspaMultiNrtRabSupport">Supported</p>
