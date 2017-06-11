@@ -133,7 +133,7 @@ public class FeatureCodeInformationUtilizationCalculatorTests {
 		Assert.assertEquals(CapacityUnit.DYNAMIC_CELL.toString(), rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("1796")).findAny().get().getUtilization());
 		Assert.assertEquals("2", rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("1897")).findAny().get().getUtilization());
 		Assert.assertEquals(FeatureCodeInformationUtilizationCalculator.NOT_USED_IN_NETWORK, rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("1898")).findAny().get().getUtilization());
-		Assert.assertEquals("0", rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("1938")).findAny().get().getUtilization());
+		Assert.assertEquals("1", rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("1938")).findAny().get().getUtilization());
 		Assert.assertEquals("2", rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("2117")).findAny().get().getUtilization());
 	}
 	

@@ -95,6 +95,13 @@
 	  <p name="FDPCHEnabled">Disabled</p>
 	  <p name="RTWithHSDPAFmcsIdentifier">3</p>
 	  <p name="SRBHSPAFmcsId">1</p>
+	  <p name="PFLIdentifier">No reference to PFL object</p>
+	  <p name="MBLBInactivityEnabled">Disabled</p>
+	  <p name="MBLBMobilityEnabled">Disabled</p>
+	  <p name="MBLBRABSetupEnabled">Disabled</p>
+	  <p name="MBLBRABSetupMultiRAB">Disabled</p>
+	  <p name="MBLBStateTransEnabled">Disabled</p>
+	  <p name="MBLBLoadInfoDistr">Disabled</p>
     </managedObject>
     <managedObject class="WCEL" version="RNC16" distName="PLMN-PLMN/RNC-841/WBTS-3200/WCEL-1772" id="100617">
       <p name="DCellHSDPAEnabled">Disabled</p>
@@ -134,6 +141,13 @@
 	  <p name="FDPCHEnabled">Enabled</p>
 	  <p name="DCellHSDPAFmcsId">3</p>
 	  <p name="RTWithHSPAFmcsIdentifier">2</p>
+	  <p name="PFLIdentifier">1</p>
+	  <p name="MBLBInactivityEnabled">Disabled</p>
+	  <p name="MBLBMobilityEnabled">Disabled</p>
+	  <p name="MBLBRABSetupEnabled">Enabled</p>
+	  <p name="MBLBRABSetupMultiRAB">Disabled</p>
+	  <p name="MBLBStateTransEnabled">Disabled</p>
+	  <p name="MBLBLoadInfoDistr">Disabled</p>
     </managedObject>
     <managedObject class="WBTS" version="RNC16" distName="PLMN-PLMN/RNC-841/WBTS-3200" id="3196706">
       <p name="DLCECapacity">0</p>

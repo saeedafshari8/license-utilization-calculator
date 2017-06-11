@@ -39,6 +39,7 @@ public class FeatureCodeInformationUtilizationCalculator {
 	private static final String MAX_TOTAL_UPLINKS = "5760 kbps, 2*SF2 + 2*SF4";
 	private static final String FMCS = "FMCS";
 	private static final String DS_REP_BASED_SHO_ENABLED = "DSR based SHO is enabled";
+	private static final String PFL_IDENTIFIER_DISABLED = "No reference to PFL object";
 
 	public FeatureCodeInformationUtilizationCalculator(List<ManagedObject> managedObjects, Set<String> rncNames) {
 		managedObjectsMap = new HashMap<String, List<ManagedObject>>();
@@ -96,8 +97,7 @@ public class FeatureCodeInformationUtilizationCalculator {
 	private void calculateUtilizationBasedOnFMCS(FeatureInformation featureInformation) {
 		long count = 0;
 		String rncName = featureInformation.getRnc().getName();
-		List<ManagedObject> fmcses = managedObjectsMap.get(rncName).stream().filter(item -> item.getClassName().equalsIgnoreCase(FMCS))
-				.collect(Collectors.toList());
+		List<ManagedObject> fmcses = managedObjectsMap.get(rncName).stream().filter(item -> item.getClassName().equalsIgnoreCase(FMCS)).collect(Collectors.toList());
 
 		if (featureInformation.getCode().equals("1080") || featureInformation.getCode().equals("1109")) {
 			for (ManagedObject fmcs : fmcses) {
@@ -108,8 +108,7 @@ public class FeatureCodeInformationUtilizationCalculator {
 						for (ManagedObject wcell : managedObjectsMap.get(featureInformation.getRnc().getName()).stream().filter(item -> item.getClassName().equalsIgnoreCase(WCEL))
 								.collect(Collectors.toList())) {
 							String fmcsIdVal = fmcsId.get();
-							if (getParameterValue(wcell, "DCellHSDPAFmcsId").equalsIgnoreCase(fmcsIdVal)
-									|| getParameterValue(wcell, "SRBDCHFmcsId").equalsIgnoreCase(fmcsIdVal)
+							if (getParameterValue(wcell, "DCellHSDPAFmcsId").equalsIgnoreCase(fmcsIdVal) || getParameterValue(wcell, "SRBDCHFmcsId").equalsIgnoreCase(fmcsIdVal)
 									|| getParameterValue(wcell, "SRBHSPAFmcsId").equalsIgnoreCase(fmcsIdVal)
 									|| getParameterValue(wcell, "HSDPAFmcsIdentifier").equalsIgnoreCase(fmcsIdVal)
 									|| getParameterValue(wcell, "RTWithHSDPAFmcsIdentifier").equalsIgnoreCase(fmcsIdVal)
@@ -304,7 +303,16 @@ public class FeatureCodeInformationUtilizationCalculator {
 		} else if (featureInformation.getCode().equals("1898")) {
 			featureInformation.setUtilization(NOT_USED_IN_NETWORK);
 		} else if (featureInformation.getCode().equals("1938")) {
-			count = 0;
+			for (ManagedObject managedObject : wcells) {
+				if (!getParameterValue(managedObject, "PFLIdentifier").equalsIgnoreCase(PFL_IDENTIFIER_DISABLED))
+					if (getParameterValue(managedObject, "MBLBInactivityEnabled").equalsIgnoreCase(ENABLED)
+							|| getParameterValue(managedObject, "MBLBMobilityEnabled").equalsIgnoreCase(ENABLED)
+							|| getParameterValue(managedObject, "MBLBRABSetupEnabled").equalsIgnoreCase(ENABLED)
+							|| getParameterValue(managedObject, "MBLBRABSetupMultiRAB").equalsIgnoreCase(ENABLED)
+							|| getParameterValue(managedObject, "MBLBStateTransEnabled").equalsIgnoreCase(ENABLED)
+							|| getParameterValue(managedObject, "MBLBLoadInfoDistr").equalsIgnoreCase(ENABLED))
+						count++;
+			}
 		} else if (featureInformation.getCode().equals("2117")) {
 //			featureInformation.setUtilization(COUNTER_NO_CALCULATION);
 			count = getWCellCount(rncName);
