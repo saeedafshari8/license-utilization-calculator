@@ -37,6 +37,8 @@ public class FeatureCodeInformationUtilizationCalculator {
 	private static final String FMCG = "FMCG";
 	private static final String RNMOBI = "RNMOBI";
 	private static final String MAX_TOTAL_UPLINKS = "5760 kbps, 2*SF2 + 2*SF4";
+	private static final String FMCS = "FMCS";
+	private static final String DS_REP_BASED_SHO_ENABLED = "DSR based SHO is enabled";
 
 	public FeatureCodeInformationUtilizationCalculator(List<ManagedObject> managedObjects, Set<String> rncNames) {
 		managedObjectsMap = new HashMap<String, List<ManagedObject>>();
@@ -83,9 +85,46 @@ public class FeatureCodeInformationUtilizationCalculator {
 		case RNMOBI:
 			calculateUtilizationBasedOnRNMOBI(featureInformation);
 			break;
+		case FMCS:
+			calculateUtilizationBasedOnFMCS(featureInformation);
+			break;
 		default:
 			break;
 		}
+	}
+	
+	private void calculateUtilizationBasedOnFMCS(FeatureInformation featureInformation) {
+		long count = 0;
+		String rncName = featureInformation.getRnc().getName();
+		List<ManagedObject> fmcses = managedObjectsMap.get(rncName).stream().filter(item -> item.getClassName().equalsIgnoreCase(FMCS))
+				.collect(Collectors.toList());
+
+		if (featureInformation.getCode().equals("1080") || featureInformation.getCode().equals("1109")) {
+			for (ManagedObject fmcs : fmcses) {
+				if (getParameterValue(fmcs, "DSRepBasedSHO").equalsIgnoreCase(DS_REP_BASED_SHO_ENABLED)) {
+					Optional<String> fmcsId = Arrays.stream(fmcs.getDistName().split("/")).filter(item -> item.startsWith(FMCS)).map(item -> item.replace(FMCS + "-", ""))
+							.findAny();
+					if (fmcsId.isPresent()) {
+						for (ManagedObject wcell : managedObjectsMap.get(featureInformation.getRnc().getName()).stream().filter(item -> item.getClassName().equalsIgnoreCase(WCEL))
+								.collect(Collectors.toList())) {
+							String fmcsIdVal = fmcsId.get();
+							if (getParameterValue(wcell, "DCellHSDPAFmcsId").equalsIgnoreCase(fmcsIdVal)
+									|| getParameterValue(wcell, "SRBDCHFmcsId").equalsIgnoreCase(fmcsIdVal)
+									|| getParameterValue(wcell, "SRBHSPAFmcsId").equalsIgnoreCase(fmcsIdVal)
+									|| getParameterValue(wcell, "HSDPAFmcsIdentifier").equalsIgnoreCase(fmcsIdVal)
+									|| getParameterValue(wcell, "RTWithHSDPAFmcsIdentifier").equalsIgnoreCase(fmcsIdVal)
+									|| getParameterValue(wcell, "HSPAFmcsIdentifier").equalsIgnoreCase(fmcsIdVal)
+									|| getParameterValue(wcell, "RTWithHSPAFmcsIdentifier").equalsIgnoreCase(fmcsIdVal)
+									|| getParameterValue(wcell, "NrtFmcsIdentifier").equalsIgnoreCase(fmcsIdVal)
+									|| getParameterValue(wcell, "RtFmcsIdentifier").equalsIgnoreCase(fmcsIdVal))
+								count++;
+						}
+					}
+				}
+			}
+		}
+		if (featureInformation.getUtilization().equals(FeatureInformation.DEFAULT_UTILIZATION))
+			featureInformation.setUtilization(new Long(count).toString());
 	}
 
 	private void calculateUtilizationBasedOnRNMOBI(FeatureInformation featureInformation) {
@@ -433,7 +472,7 @@ public class FeatureCodeInformationUtilizationCalculator {
 			}
 		} else if (featureInformation.getCode().equals("4538")) {
 			for (ManagedObject wcell : wcells) {
-				if (getParameterValue(wcell, "CPCEnabled").equalsIgnoreCase(ENABLED)) {
+				if (getParameterValue(wcell, "CPCEnabled").equalsIgnoreCase(ENABLED) && getParameterValue(wcell, "FDPCHEnabled").equalsIgnoreCase(ENABLED)) {
 					count++;
 				}
 			}

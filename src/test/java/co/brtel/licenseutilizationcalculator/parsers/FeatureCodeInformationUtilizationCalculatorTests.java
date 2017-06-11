@@ -181,4 +181,14 @@ public class FeatureCodeInformationUtilizationCalculatorTests {
 		String rnc841Name = "R841N";
 		Assert.assertEquals("2", rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("628")).findAny().get().getUtilization());
 	}
+	
+	@Test
+	public void testCalculateUtilizationBasedOnFMCS() {
+		for (String key : rncsFeaturesMap.keySet()) {
+			utilizationCalculator.calculateUtilization(rncsFeaturesMap.get(key));
+		}
+		String rnc841Name = "R841N";
+		Assert.assertEquals("2", rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("1080")).findAny().get().getUtilization());
+		Assert.assertEquals("2", rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("1109")).findAny().get().getUtilization());
+	}
 }

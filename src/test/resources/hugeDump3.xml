@@ -71,7 +71,6 @@
 	  <p name="HspaMultiNrtRabSupport">Supported</p>
 	  <p name="HSDPA64QAMallowed">Disabled</p>
 	  <p name="HSUPA2MSTTIEnabled">Disabled</p>
-	  <p name="FDPCHEnabled">Disabled</p>
 	  <p name="CPCEnabled">Disabled</p>
 	  <p name="IncomingLTEISHO">Disabled</p>
 	  <p name="HSFACHEnabled">Disabled</p>
@@ -93,6 +92,9 @@
 	  <p name="LTELayeringMeasActivation">Measurement for periodic trigger</p>
 	  <p name="RtFmcgIdentifier">31</p>
 	  <p name="HSDPALayeringCommonChEnabled">Enabled</p>
+	  <p name="FDPCHEnabled">Disabled</p>
+	  <p name="RTWithHSDPAFmcsIdentifier">3</p>
+	  <p name="SRBHSPAFmcsId">1</p>
     </managedObject>
     <managedObject class="WCEL" version="RNC16" distName="PLMN-PLMN/RNC-841/WBTS-3200/WCEL-1772" id="100617">
       <p name="DCellHSDPAEnabled">Disabled</p>
@@ -105,7 +107,6 @@
 	  <p name="HspaMultiNrtRabSupport">Supported</p>
 	  <p name="HSDPA64QAMallowed">Enabled</p>
 	  <p name="HSUPA2MSTTIEnabled">Enabled</p>
-	  <p name="FDPCHEnabled">Enabled</p>
 	  <p name="LTEHandoverEnabled">Enabled for all triggers</p>
 	  <p name="SABEnabled">Enabled</p>
 	  <p name="HSFACHEnabled">Enabled</p>
@@ -130,6 +131,9 @@
 	  <p name="LTELayeringMeasActivation">Measurement for all triggers</p>
 	  <p name="RtFmcgIdentifier">32</p>
 	  <p name="HSDPALayeringCommonChEnabled">Enabled</p>
+	  <p name="FDPCHEnabled">Enabled</p>
+	  <p name="DCellHSDPAFmcsId">3</p>
+	  <p name="RTWithHSPAFmcsIdentifier">2</p>
     </managedObject>
     <managedObject class="WBTS" version="RNC16" distName="PLMN-PLMN/RNC-841/WBTS-3200" id="3196706">
       <p name="DLCECapacity">0</p>
@@ -241,6 +245,15 @@
     </managedObject>
     <managedObject class="RNMOBI" version="RNC16" distName="PLMN-PLMN/RNC-841/RNMOBI-1" id="146571">
       <p name="DirectedRRCForHSDPALayerEnhanc">Enabled</p>
+    </managedObject>
+    <managedObject class="FMCS" version="RNC16" distName="PLMN-PLMN/RNC-841/FMCS-1" id="2030466">
+      <p name="DSRepBasedSHO">DSR is not allowed</p>
+    </managedObject>
+    <managedObject class="FMCS" version="RNC16" distName="PLMN-PLMN/RNC-841/FMCS-2" id="2030466">
+      <p name="DSRepBasedSHO">DSR based SHO is not allowed</p>
+    </managedObject>
+    <managedObject class="FMCS" version="RNC16" distName="PLMN-PLMN/RNC-841/FMCS-3" id="2030466">
+      <p name="DSRepBasedSHO">DSR based SHO is enabled</p>
     </managedObject>
   </cmData>
 </raml>
