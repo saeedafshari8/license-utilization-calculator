@@ -244,25 +244,31 @@ public class FeatureCodeInformationUtilizationCalculator {
 		} else if (featureInformation.getCode().equals("1079")) {
 			count = getWbtsCount(rncName);
 		} else if (featureInformation.getCode().equals("1107")) {
-			featureInformation.setUtilization(NO_DOC_AVAILABLE);
+//			featureInformation.setUtilization(NO_DOC_AVAILABLE);
+			count = getWCellCount(rncName);
 		} else if (featureInformation.getCode().equals("1110")) {
-			featureInformation.setUtilization(NO_DOC_AVAILABLE);
+//			featureInformation.setUtilization(NO_DOC_AVAILABLE);
+			count = getWCellCount(rncName);
 		} else if (featureInformation.getCode().equals("1246")) {
 			featureInformation.setUtilization(NOT_USED_IN_NETWORK);
 		} else if (featureInformation.getCode().equals("1435")) {
 			featureInformation.setUtilization(NA);
 		} else if (featureInformation.getCode().equals("1490")) {
-			featureInformation.setUtilization(NO_DOC_AVAILABLE);
+//			featureInformation.setUtilization(NO_DOC_AVAILABLE);
+			count = getWCellCount(rncName);
 		} else if (featureInformation.getCode().equals("1683")) {
-			featureInformation.setUtilization(NO_DOC_AVAILABLE);
+//			featureInformation.setUtilization(NO_DOC_AVAILABLE);
+			count = getWCellCount(rncName);
 		} else if (featureInformation.getCode().equals("1897")) {
-			featureInformation.setUtilization(NO_DOC_AVAILABLE);
+//			featureInformation.setUtilization(NO_DOC_AVAILABLE);
+			count = getWCellCount(rncName);
 		} else if (featureInformation.getCode().equals("1898")) {
 			featureInformation.setUtilization(NOT_USED_IN_NETWORK);
 		} else if (featureInformation.getCode().equals("1938")) {
 			count = 0;
 		} else if (featureInformation.getCode().equals("2117")) {
-			featureInformation.setUtilization(COUNTER_NO_CALCULATION);
+//			featureInformation.setUtilization(COUNTER_NO_CALCULATION);
+			count = getWCellCount(rncName);
 		}
 		if(featureInformation.getUtilization() == "-1")
 			featureInformation.setUtilization(new Long(count).toString());
