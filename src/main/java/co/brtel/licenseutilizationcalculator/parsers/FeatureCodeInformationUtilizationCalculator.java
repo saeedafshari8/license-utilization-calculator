@@ -226,8 +226,10 @@ public class FeatureCodeInformationUtilizationCalculator {
 		List<ManagedObject> wcells = managedObjectsMap.get(rncName).stream().filter(item -> item.getClassName().equalsIgnoreCase(WCEL))
 				.collect(Collectors.toList());
 		long count = 0;
-		if (featureInformation.getCode().equals("625")) {
-			count = 0;
+		if (featureInformation.getCode().equals("619")) {
+			count = wcells.size();
+		} else if (featureInformation.getCode().equals("625")) {
+			count = wcells.size();
 		} else if (featureInformation.getCode().equals("969")) {
 			count = 0;
 		} else if (featureInformation.getCode().equals("974")) {

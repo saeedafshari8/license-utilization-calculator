@@ -110,11 +110,12 @@ public class FeatureCodeInformationUtilizationCalculatorTests {
 			utilizationCalculator.calculateUtilization(rncsFeaturesMap.get(key));
 		}
 		String rnc841Name = "R841N";
+		Assert.assertEquals("2", rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("619")).findAny().get().getUtilization());
 		Assert.assertEquals(CapacityUnit.DYNAMIC_CELL.toString(), rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("620")).findAny().get().getUtilization());
 		Assert.assertEquals(CapacityUnit.DYNAMIC_CELL.toString(), rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("621")).findAny().get().getUtilization());
 		Assert.assertEquals(CapacityUnit.DYNAMIC_CELL.toString(), rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("622")).findAny().get().getUtilization());
 		Assert.assertEquals(CapacityUnit.DYNAMIC_CELL.toString(), rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("623")).findAny().get().getUtilization());
-		Assert.assertEquals("0", rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("625")).findAny().get().getUtilization());
+		Assert.assertEquals("2", rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("625")).findAny().get().getUtilization());
 		Assert.assertEquals("0", rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("969")).findAny().get().getUtilization());
 		Assert.assertEquals("2", rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("974")).findAny().get().getUtilization());
 		Assert.assertEquals("1", rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("1029")).findAny().get().getUtilization());
