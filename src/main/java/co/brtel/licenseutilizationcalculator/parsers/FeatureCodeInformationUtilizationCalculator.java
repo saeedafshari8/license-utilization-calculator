@@ -42,6 +42,7 @@ public class FeatureCodeInformationUtilizationCalculator {
 	private static final String PFL_IDENTIFIER_DISABLED = "No reference to PFL object";
 	private static final String RNC = "RNC";
 	private static final String DISABLED = "Disabled";
+	private static final String DEFAULT_PARAMETER_VALUE = "###";
 
 	public FeatureCodeInformationUtilizationCalculator(List<ManagedObject> managedObjects, Set<String> rncNames) {
 		managedObjectsMap = new HashMap<String, List<ManagedObject>>();
@@ -110,7 +111,8 @@ public class FeatureCodeInformationUtilizationCalculator {
 				count = getWCellCount(rnc.get(), rncName);
 			}
 		}else if (featureInformation.getCode().equals("1434")) {
-			if(!getParameterValue(rnc.get(), "TraceLCSWaitPeriod").equalsIgnoreCase(DISABLED)){
+			String val = getParameterValue(rnc.get(), "TraceLCSWaitPeriod");
+			if(!val.equalsIgnoreCase(DEFAULT_PARAMETER_VALUE) && !val.equalsIgnoreCase(DISABLED)){
 				count = getWCellCount(rnc.get(), rncName);
 			}
 		}
@@ -255,7 +257,8 @@ public class FeatureCodeInformationUtilizationCalculator {
 			}
 		} else if (featureInformation.getCode().equals("1247")) {
 			for (ManagedObject wbts : wbtses) {
-				if (!getParameterValue(wbts, "TQMId").equalsIgnoreCase(TQM_NOT_CONNECTED ))
+				String val = getParameterValue(wbts, "TQMId");
+				if (!val.equalsIgnoreCase(DEFAULT_PARAMETER_VALUE) && !val.equalsIgnoreCase(TQM_NOT_CONNECTED ))
 					count++;
 			}
 		} else if (featureInformation.getCode().equals("1279")) {
@@ -265,7 +268,8 @@ public class FeatureCodeInformationUtilizationCalculator {
 			ManagedObject rnfc = opt.get();
 			if (getParameterValue(rnfc, "CMmasterSwitch").equalsIgnoreCase(USED)) {
 				for (ManagedObject wbts : wbtses) {
-					if (!getParameterValue(wbts, "BTSSupportForHSPACM").equalsIgnoreCase(BTS_SUPPORT_FOR_HSPACM_DISABLED))
+					String val = getParameterValue(wbts, "BTSSupportForHSPACM");
+					if (!val.equalsIgnoreCase(DEFAULT_PARAMETER_VALUE) && !val.equalsIgnoreCase(BTS_SUPPORT_FOR_HSPACM_DISABLED))
 						count += getWCellCount(wbts, rncName);
 				}
 			}
@@ -276,7 +280,8 @@ public class FeatureCodeInformationUtilizationCalculator {
 			}
 		} else if (featureInformation.getCode().equals("4783")) {
 			for (ManagedObject wbts : wbtses) {
-				if (!getParameterValue(wbts, "BTSSupportForHSPACM").equalsIgnoreCase(BTS_SUPPORT_FOR_HSPACM_DISABLED))
+				String val = getParameterValue(wbts, "BTSSupportForHSPACM");
+				if (!val.equalsIgnoreCase(DEFAULT_PARAMETER_VALUE) && !val.equalsIgnoreCase(BTS_SUPPORT_FOR_HSPACM_DISABLED))
 					count += getWCellCount(wbts, rncName);
 			}
 		}
@@ -337,7 +342,8 @@ public class FeatureCodeInformationUtilizationCalculator {
 			featureInformation.setUtilization(NOT_USED_IN_NETWORK);
 		} else if (featureInformation.getCode().equals("1938")) {
 			for (ManagedObject managedObject : wcells) {
-				if (!getParameterValue(managedObject, "PFLIdentifier").equalsIgnoreCase(PFL_IDENTIFIER_DISABLED))
+				String val = getParameterValue(managedObject, "PFLIdentifier");
+				if (!val.equalsIgnoreCase(DEFAULT_PARAMETER_VALUE) && !val.equalsIgnoreCase(PFL_IDENTIFIER_DISABLED))
 					if (getParameterValue(managedObject, "MBLBInactivityEnabled").equalsIgnoreCase(ENABLED)
 							|| getParameterValue(managedObject, "MBLBMobilityEnabled").equalsIgnoreCase(ENABLED)
 							|| getParameterValue(managedObject, "MBLBRABSetupEnabled").equalsIgnoreCase(ENABLED)
@@ -358,7 +364,7 @@ public class FeatureCodeInformationUtilizationCalculator {
 		Optional<Parameter> parameter = Arrays.stream(managedObject.getParameters()).filter(item -> item.getName().equalsIgnoreCase(name)).findAny();
 		if (parameter.isPresent())
 			return parameter.get().getValue();
-		return "";
+		return DEFAULT_PARAMETER_VALUE;
 	}
 
 	private void calculateUtilizationBasedOnWcell(FeatureInformation featureInformation) {
