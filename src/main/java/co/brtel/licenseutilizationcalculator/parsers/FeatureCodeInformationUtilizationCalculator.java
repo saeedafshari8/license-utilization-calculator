@@ -305,6 +305,15 @@ public class FeatureCodeInformationUtilizationCalculator {
 			count = 0;
 		} else if (featureInformation.getCode().equals("1079")) {
 			count = getWbtsCount(rncName);
+		} else if (featureInformation.getCode().equals("1069")) {
+//			featureInformation.setUtilization(NO_DOC_AVAILABLE);
+			count = getWCellCount(rncName);
+		} else if (featureInformation.getCode().equals("1070")) {
+//			featureInformation.setUtilization(NO_DOC_AVAILABLE);
+			count = getWCellCount(rncName);
+		} else if (featureInformation.getCode().equals("1071")) {
+//			featureInformation.setUtilization(NO_DOC_AVAILABLE);
+			count = getWCellCount(rncName);
 		} else if (featureInformation.getCode().equals("1107")) {
 //			featureInformation.setUtilization(NO_DOC_AVAILABLE);
 			count = getWCellCount(rncName);
@@ -424,12 +433,12 @@ public class FeatureCodeInformationUtilizationCalculator {
 				}
 			}
 		} else if (featureInformation.getCode().equals("1497")) {
+			Map<String, Boolean> tmpMap = new HashMap<>();
 			for (ManagedObject wcell : wcells) {
-				// TODO: 1 cell found!
-				if (getParameterValue(wcell, "HSUPA16QAMAllowed").equalsIgnoreCase(ENABLED) && getParameterValue(wcell, "MaxTotalUplinkSymbolRate").equalsIgnoreCase("5760 kbps, 2*SF2 + 2*SF4")) {
-					count++;
-				}
+				if (getParameterValue(wcell, "HSUPA16QAMAllowed").equalsIgnoreCase(ENABLED) && getParameterValue(wcell, "MaxTotalUplinkSymbolRate").equalsIgnoreCase(MAX_TOTAL_UPLINKS))
+					tmpMap.put(Arrays.stream(wcell.getDistName().split("/")).filter(item -> item.startsWith(WBTS)).findAny().get(), true);
 			}
+			count = tmpMap.size();
 		} else if (featureInformation.getCode().equals("1754")) {
 			count = wcells.size();
 		} else if (featureInformation.getCode().equals("1755")) {
