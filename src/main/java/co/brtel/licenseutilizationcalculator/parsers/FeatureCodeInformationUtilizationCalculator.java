@@ -38,7 +38,7 @@ public class FeatureCodeInformationUtilizationCalculator {
 	private static final String RNMOBI = "RNMOBI";
 	private static final String MAX_TOTAL_UPLINKS = "5760 kbps, 2*SF2 + 2*SF4";
 	private static final String FMCS = "FMCS";
-	private static final String DS_REP_BASED_SHO_ENABLED = "DSR based SHO is enabled";
+	private static final String DS_REP_IS_NOT_ALLOWED = "DSR is not allowed";
 	private static final String PFL_IDENTIFIER_DISABLED = "No reference to PFL object";
 	private static final String RNC = "RNC";
 	private static final String DISABLED = "Disabled";
@@ -144,7 +144,8 @@ public class FeatureCodeInformationUtilizationCalculator {
 
 		if (featureInformation.getCode().equals("1080") || featureInformation.getCode().equals("1109")) {
 			for (ManagedObject fmcs : fmcses) {
-				if (getParameterValue(fmcs, "DSRepBasedSHO").equalsIgnoreCase(DS_REP_BASED_SHO_ENABLED)) {
+				String val = getParameterValue(fmcs, "DSRepBasedSHO");
+				if (!val.equalsIgnoreCase(DEFAULT_PARAMETER_VALUE) && !val.equalsIgnoreCase(DS_REP_IS_NOT_ALLOWED)) {
 					Optional<String> fmcsId = Arrays.stream(fmcs.getDistName().split("/")).filter(item -> item.startsWith(FMCS)).map(item -> item.replace(FMCS + "-", ""))
 							.findAny();
 					if (fmcsId.isPresent()) {

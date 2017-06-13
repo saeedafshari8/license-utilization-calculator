@@ -201,8 +201,8 @@ public class FeatureCodeInformationUtilizationCalculatorTests {
 			utilizationCalculator.calculateUtilization(rncsFeaturesMap.get(key));
 		}
 		String rnc841Name = "R841N";
-		Assert.assertEquals("2", getUtilization(rnc841Name, "1080"));
-		Assert.assertEquals("2", getUtilization(rnc841Name, "1109"));
+		Assert.assertEquals("3", getUtilization(rnc841Name, "1080"));
+		Assert.assertEquals("3", getUtilization(rnc841Name, "1109"));
 	}
 
 	@Test
