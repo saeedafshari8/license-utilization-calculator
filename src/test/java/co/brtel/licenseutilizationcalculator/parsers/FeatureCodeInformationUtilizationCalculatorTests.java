@@ -18,16 +18,20 @@ import org.junit.Test;
 import co.brtel.licenseutilizationcalculator.pojo.CapacityUnit;
 import co.brtel.licenseutilizationcalculator.pojo.FeatureInformation;
 import co.brtel.licenseutilizationcalculator.pojo.ManagedObject;
+import co.brtel.licenseutilizationcalculator.pojo.ManagedObjectType;
 
 public class FeatureCodeInformationUtilizationCalculatorTests {
 	private FeatureCodeInformationUtilizationCalculator utilizationCalculator;
 	Map<String, List<FeatureInformation>> rncsFeaturesMap;
 	String multipleRncFeatureCodesSampleData;
+	String multipleZQRLSampleData;
 
 	@Before
 	public void setUp() throws IOException, JAXBException {
 		multipleRncFeatureCodesSampleData = String.join("\r\n", Files.lines(new File(getClass().getResource("/multiple-feature-code-information-sample2.txt").getFile()).toPath())
 				.collect(Collectors.toList()));
+		multipleZQRLSampleData = String.join("\r\n", Files.lines(new File(getClass().getResource("/zqrl-multiple-sample.txt").getFile()).toPath()).collect(Collectors.toList()));
+		
 		FeatureCodeInformationParser featureInformationParser = new FeatureCodeInformationParser();
 		FeatureCodeUtilizedCapacityParser capacityParser = new FeatureCodeUtilizedCapacityParser();
 		rncsFeaturesMap = featureInformationParser.readRncsFeatureCodesInformations(multipleRncFeatureCodesSampleData);
@@ -209,5 +213,20 @@ public class FeatureCodeInformationUtilizationCalculatorTests {
 		String rnc841Name = "R841N";
 		Assert.assertEquals("2", getUtilization(rnc841Name, "1375"));
 		Assert.assertEquals("2", getUtilization(rnc841Name, "1434"));
+	}
+	
+	@Test
+	public void testCalculateUtilizationBasedOnZQRL() {
+		ZQRLParser zqrlParser = new ZQRLParser();
+		Map<String, Boolean> result = zqrlParser.readRNCsMUXStatus(multipleZQRLSampleData);
+		
+		for (String key : rncsFeaturesMap.keySet()) {
+			for (FeatureInformation fi : rncsFeaturesMap.get(key).stream().filter(item -> item.getManagedObjectType() == ManagedObjectType.COMMAND_ZQRL).collect(Collectors.toList())) {
+				fi.getRnc().setMuxEnable(result.get(fi.getRnc().getName()));
+			}
+			utilizationCalculator.calculateUtilization(rncsFeaturesMap.get(key));
+		}
+		String rnc841Name = "R841N";
+		Assert.assertEquals("2", getUtilization(rnc841Name, "1375"));
 	}
 }

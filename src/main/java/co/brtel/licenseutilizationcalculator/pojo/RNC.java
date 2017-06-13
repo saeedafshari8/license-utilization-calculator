@@ -14,6 +14,7 @@ public class RNC {
 
 	private String name;
 	private String code;
+	private boolean muxEnable;
 
 	public static RNC readRncInfo(String data) {
 		Optional<String> lines = Arrays.stream(data.split("\r\n")).filter(item -> item.startsWith("RNC")).findFirst();
@@ -44,5 +45,13 @@ public class RNC {
 
 	public void setCode(String code) {
 		this.code = code;
+	}
+
+	public boolean isMuxEnable() {
+		return muxEnable;
+	}
+
+	public void setMuxEnable(boolean muxEnable) {
+		this.muxEnable = muxEnable;
 	}
 }

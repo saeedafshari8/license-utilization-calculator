@@ -28,9 +28,9 @@ public class ZQRLParserTests {
 
 	@Test
 	public void testReadRNCsMUXStatus() {
-		Map<String, String> result = parser.readRNCsMUXStatus(multipleZQRLSampleData);
+		Map<String, Boolean> result = parser.readRNCsMUXStatus(multipleZQRLSampleData);
 
-		Assert.assertEquals(result.get("R841N"), "ENABLE");
-		Assert.assertEquals(result.get("R862N"), "DISABLE");
+		Assert.assertEquals(true, result.get("R841N"));
+		Assert.assertEquals(false, result.get("R862N"));
 	}
 }

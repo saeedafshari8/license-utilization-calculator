@@ -11,17 +11,18 @@ public class ZQRLParser {
 	private static final String ZQRL_COMMAND_MATCH_PATTERN_HEAD = "ZQRL;";
 	private static final String ZQRL_COMMAND_MATCH_PATTERN_TAIL = "COMMAND EXECUTED";
 	private static final String ZQRL_MATCH_PATTERN = ".*MUX[\\W]*LOCAL MUX REMOTE MUX MAX[\\W]*DSCP[\\W]*([a-zA-Z]+)";
+	private static final String ENABLE = "ENABLE";
 
-	private String isMUXEnable(String data) {
+	private boolean isMUXEnable(String data) {
 		Pattern compiledInitialPattern = Pattern.compile(ZQRLParser.ZQRL_MATCH_PATTERN);
 		Matcher matcher = compiledInitialPattern.matcher(data);
 		while (matcher.find())
-			return matcher.group(1);
-		return null;
+			return matcher.group(1).equalsIgnoreCase(ENABLE);
+		return false;
 	}
 
-	public Map<String, String> readRNCsMUXStatus(String data) {
-		Map<String, String> resultMap = new HashMap<String, String>();
+	public Map<String, Boolean> readRNCsMUXStatus(String data) {
+		Map<String, Boolean> resultMap = new HashMap<String, Boolean>();
 
 		String matchPattern = ZQRL_COMMAND_MATCH_PATTERN_HEAD + "(.*?)" + ZQRL_COMMAND_MATCH_PATTERN_TAIL;
 		Pattern pattern = Pattern.compile(matchPattern, Pattern.DOTALL);

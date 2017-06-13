@@ -95,9 +95,26 @@ public class FeatureCodeInformationUtilizationCalculator {
 		case RNC:
 			calculateUtilizationBasedOnRNC(featureInformation);
 			break;
+		case COMMAND_ZQRL:
+			calculateUtilizationBasedOnZQRL(featureInformation);
+			break;
 		default:
 			break;
 		}
+	}
+	
+	private void calculateUtilizationBasedOnZQRL(FeatureInformation featureInformation) {
+		long count = 0;
+		String rncName = featureInformation.getRnc().getName();
+		
+		if (featureInformation.getCode().equals("1684")) {
+			if(featureInformation.getRnc().isMuxEnable()){
+				count = getWCellCount(rncName);
+			}
+		}
+		
+		if (featureInformation.getUtilization().equals(FeatureInformation.DEFAULT_UTILIZATION))
+			featureInformation.setUtilization(new Long(count).toString());
 	}
 	
 	private void calculateUtilizationBasedOnRNC(FeatureInformation featureInformation) {
