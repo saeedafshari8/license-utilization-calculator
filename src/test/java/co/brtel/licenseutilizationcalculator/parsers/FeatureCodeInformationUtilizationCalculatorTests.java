@@ -21,12 +21,13 @@ import co.brtel.licenseutilizationcalculator.pojo.ManagedObject;
 
 public class FeatureCodeInformationUtilizationCalculatorTests {
 	private FeatureCodeInformationUtilizationCalculator utilizationCalculator;
-	Map<String,List<FeatureInformation>> rncsFeaturesMap;
+	Map<String, List<FeatureInformation>> rncsFeaturesMap;
 	String multipleRncFeatureCodesSampleData;
-	
+
 	@Before
 	public void setUp() throws IOException, JAXBException {
-		multipleRncFeatureCodesSampleData = String.join("\r\n", Files.lines(new File(getClass().getResource("/multiple-feature-code-information-sample2.txt").getFile()).toPath()).collect(Collectors.toList()));
+		multipleRncFeatureCodesSampleData = String.join("\r\n", Files.lines(new File(getClass().getResource("/multiple-feature-code-information-sample2.txt").getFile()).toPath())
+				.collect(Collectors.toList()));
 		FeatureCodeInformationParser featureInformationParser = new FeatureCodeInformationParser();
 		FeatureCodeUtilizedCapacityParser capacityParser = new FeatureCodeUtilizedCapacityParser();
 		rncsFeaturesMap = featureInformationParser.readRncsFeatureCodesInformations(multipleRncFeatureCodesSampleData);
@@ -34,7 +35,7 @@ public class FeatureCodeInformationUtilizationCalculatorTests {
 		for (String key : rncsUtilizationFeaturesMap.keySet()) {
 			for (FeatureInformation fi : rncsUtilizationFeaturesMap.get(key)) {
 				Optional<FeatureInformation> optFI = rncsFeaturesMap.get(key).stream().filter(item -> item.getCode().equals(fi.getCode())).findAny();
-				if(optFI.isPresent()){
+				if (optFI.isPresent()) {
 					optFI.get().setUtilization(fi.getUtilization());
 				}
 			}
@@ -42,167 +43,171 @@ public class FeatureCodeInformationUtilizationCalculatorTests {
 		List<ManagedObject> managedObjectsMap = RamlSerializer.extractManagedObjects(Arrays.asList(getClass().getResource("/hugeDump3.xml").getFile()));
 		utilizationCalculator = new FeatureCodeInformationUtilizationCalculator(managedObjectsMap, rncsFeaturesMap.keySet());
 	}
-	
+
+	private String getUtilization(String rncName, String featureCode) {
+		return rncsFeaturesMap.get(rncName).stream().filter(item -> item.getCode().equals(featureCode)).findAny().get().getUtilization();
+	}
+
 	@Test
 	public void testCalculateUtilizationBasedOnRnfc() {
 		for (String key : rncsFeaturesMap.keySet()) {
 			utilizationCalculator.calculateUtilization(rncsFeaturesMap.get(key));
 		}
 		String rnc841Name = "R841N";
-		Assert.assertEquals("2", rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("630")).findAny().get().getUtilization());
-		Assert.assertEquals("0", rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("885")).findAny().get().getUtilization());
-		Assert.assertEquals("2", rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("967")).findAny().get().getUtilization());
-		Assert.assertEquals("2", rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("968")).findAny().get().getUtilization());
-		Assert.assertEquals("2", rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("975")).findAny().get().getUtilization());
-		Assert.assertEquals("2", rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("1060")).findAny().get().getUtilization());
-		Assert.assertEquals("2", rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("1061")).findAny().get().getUtilization());
-		Assert.assertEquals("0", rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("1062")).findAny().get().getUtilization());
-		Assert.assertEquals("1", rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("1686")).findAny().get().getUtilization());
-		Assert.assertEquals("1", rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("1690")).findAny().get().getUtilization());
-		Assert.assertEquals("2", rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("3384")).findAny().get().getUtilization());
-		Assert.assertEquals("0", rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("4290")).findAny().get().getUtilization());
-		Assert.assertEquals("0", rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("4293")).findAny().get().getUtilization());
-		Assert.assertEquals("0", rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("4348")).findAny().get().getUtilization());
-		Assert.assertEquals("0", rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("4780")).findAny().get().getUtilization());
+		Assert.assertEquals("2", getUtilization(rnc841Name, "630"));
+		Assert.assertEquals("0", getUtilization(rnc841Name, "885"));
+		Assert.assertEquals("2", getUtilization(rnc841Name, "967"));
+		Assert.assertEquals("2", getUtilization(rnc841Name, "968"));
+		Assert.assertEquals("2", getUtilization(rnc841Name, "975"));
+		Assert.assertEquals("2", getUtilization(rnc841Name, "1060"));
+		Assert.assertEquals("2", getUtilization(rnc841Name, "1061"));
+		Assert.assertEquals("0", getUtilization(rnc841Name, "1062"));
+		Assert.assertEquals("1", getUtilization(rnc841Name, "1686"));
+		Assert.assertEquals("1", getUtilization(rnc841Name, "1690"));
+		Assert.assertEquals("2", getUtilization(rnc841Name, "3384"));
+		Assert.assertEquals("0", getUtilization(rnc841Name, "4290"));
+		Assert.assertEquals("0", getUtilization(rnc841Name, "4293"));
+		Assert.assertEquals("0", getUtilization(rnc841Name, "4348"));
+		Assert.assertEquals("0", getUtilization(rnc841Name, "4780"));
 	}
-	
+
 	@Test
 	public void testCalculateUtilizationBasedOnWcell() {
 		for (String key : rncsFeaturesMap.keySet()) {
 			utilizationCalculator.calculateUtilization(rncsFeaturesMap.get(key));
 		}
 		String rnc841Name = "R841N";
-		Assert.assertEquals("2", rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("638")).findAny().get().getUtilization());
-		Assert.assertEquals("1", rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("961")).findAny().get().getUtilization());
-		Assert.assertEquals("1", rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("962")).findAny().get().getUtilization());
-		Assert.assertEquals("2", rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("966")).findAny().get().getUtilization());
-		Assert.assertEquals("1", rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("1086")).findAny().get().getUtilization());
-		Assert.assertEquals("1", rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("1087")).findAny().get().getUtilization());
-		Assert.assertEquals("1", rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("1089")).findAny().get().getUtilization());
-		Assert.assertEquals("1", rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("1091")).findAny().get().getUtilization());
-		Assert.assertEquals("1", rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("1471")).findAny().get().getUtilization());
-		Assert.assertEquals("1", rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("1475")).findAny().get().getUtilization());
-		Assert.assertEquals("1", rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("1476")).findAny().get().getUtilization());
-		Assert.assertEquals("1", rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("1485")).findAny().get().getUtilization());
-		Assert.assertEquals("1", rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("1497")).findAny().get().getUtilization());
-		Assert.assertEquals("1", rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("1755")).findAny().get().getUtilization());
-		Assert.assertEquals("1", rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("1756")).findAny().get().getUtilization());
-		Assert.assertEquals("1", rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("1795")).findAny().get().getUtilization());
-		Assert.assertEquals("1", rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("1798")).findAny().get().getUtilization());
-		Assert.assertEquals("1", rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("3414")).findAny().get().getUtilization());
-		Assert.assertEquals("1", rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("3420")).findAny().get().getUtilization());
-		Assert.assertEquals("1", rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("3422")).findAny().get().getUtilization());
-		Assert.assertEquals("1", rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("3898")).findAny().get().getUtilization());
-		Assert.assertEquals("1", rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("3903")).findAny().get().getUtilization());
-		Assert.assertEquals("1", rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("4160")).findAny().get().getUtilization());
-		Assert.assertEquals("1", rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("4492")).findAny().get().getUtilization());
-		Assert.assertEquals("0", rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("4504")).findAny().get().getUtilization());
-		Assert.assertEquals("1", rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("4533")).findAny().get().getUtilization());
-		Assert.assertEquals("1", rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("4538")).findAny().get().getUtilization());
-		Assert.assertEquals("1", rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("4545")).findAny().get().getUtilization());
-		Assert.assertEquals("1", rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("4839")).findAny().get().getUtilization());
-		Assert.assertEquals("2", rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("1754")).findAny().get().getUtilization());
+		Assert.assertEquals("2", getUtilization(rnc841Name, "638"));
+		Assert.assertEquals("1", getUtilization(rnc841Name, "961"));
+		Assert.assertEquals("1", getUtilization(rnc841Name, "962"));
+		Assert.assertEquals("2", getUtilization(rnc841Name, "966"));
+		Assert.assertEquals("1", getUtilization(rnc841Name, "1086"));
+		Assert.assertEquals("1", getUtilization(rnc841Name, "1087"));
+		Assert.assertEquals("1", getUtilization(rnc841Name, "1089"));
+		Assert.assertEquals("1", getUtilization(rnc841Name, "1091"));
+		Assert.assertEquals("1", getUtilization(rnc841Name, "1471"));
+		Assert.assertEquals("1", getUtilization(rnc841Name, "1475"));
+		Assert.assertEquals("1", getUtilization(rnc841Name, "1476"));
+		Assert.assertEquals("1", getUtilization(rnc841Name, "1485"));
+		Assert.assertEquals("1", getUtilization(rnc841Name, "1497"));
+		Assert.assertEquals("1", getUtilization(rnc841Name, "1755"));
+		Assert.assertEquals("1", getUtilization(rnc841Name, "1756"));
+		Assert.assertEquals("1", getUtilization(rnc841Name, "1795"));
+		Assert.assertEquals("1", getUtilization(rnc841Name, "1798"));
+		Assert.assertEquals("1", getUtilization(rnc841Name, "3414"));
+		Assert.assertEquals("1", getUtilization(rnc841Name, "3420"));
+		Assert.assertEquals("1", getUtilization(rnc841Name, "3422"));
+		Assert.assertEquals("1", getUtilization(rnc841Name, "3898"));
+		Assert.assertEquals("1", getUtilization(rnc841Name, "3903"));
+		Assert.assertEquals("1", getUtilization(rnc841Name, "4160"));
+		Assert.assertEquals("1", getUtilization(rnc841Name, "4492"));
+		Assert.assertEquals("0", getUtilization(rnc841Name, "4504"));
+		Assert.assertEquals("1", getUtilization(rnc841Name, "4533"));
+		Assert.assertEquals("1", getUtilization(rnc841Name, "4538"));
+		Assert.assertEquals("1", getUtilization(rnc841Name, "4545"));
+		Assert.assertEquals("1", getUtilization(rnc841Name, "4839"));
+		Assert.assertEquals("2", getUtilization(rnc841Name, "1754"));
 	}
-	
+
 	@Test
 	public void testCalculateUtilizationForNotObjectType() {
 		for (String key : rncsFeaturesMap.keySet()) {
 			utilizationCalculator.calculateUtilization(rncsFeaturesMap.get(key));
 		}
 		String rnc841Name = "R841N";
-		Assert.assertEquals("2", rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("619")).findAny().get().getUtilization());
-		Assert.assertEquals(CapacityUnit.DYNAMIC_CELL.toString(), rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("620")).findAny().get().getUtilization());
-		Assert.assertEquals(CapacityUnit.DYNAMIC_CELL.toString(), rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("621")).findAny().get().getUtilization());
-		Assert.assertEquals(CapacityUnit.DYNAMIC_CELL.toString(), rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("622")).findAny().get().getUtilization());
-		Assert.assertEquals(CapacityUnit.DYNAMIC_CELL.toString(), rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("623")).findAny().get().getUtilization());
-		Assert.assertEquals("2", rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("625")).findAny().get().getUtilization());
-		Assert.assertEquals("0", rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("969")).findAny().get().getUtilization());
-		Assert.assertEquals("2", rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("974")).findAny().get().getUtilization());
-		Assert.assertEquals("1", rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("1029")).findAny().get().getUtilization());
-		Assert.assertEquals("2", rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("1030")).findAny().get().getUtilization());
-		Assert.assertEquals("0", rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("1057")).findAny().get().getUtilization());
-		Assert.assertEquals("2", rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("1069")).findAny().get().getUtilization());
-		Assert.assertEquals("2", rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("1070")).findAny().get().getUtilization());
-		Assert.assertEquals("2", rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("1071")).findAny().get().getUtilization());
-		Assert.assertEquals("1", rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("1079")).findAny().get().getUtilization());
-		Assert.assertEquals("2", rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("1107")).findAny().get().getUtilization());
-		Assert.assertEquals(CapacityUnit.ON_OFF.toString(), rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("1108")).findAny().get().getUtilization());
-		Assert.assertEquals("2", rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("1110")).findAny().get().getUtilization());
-		Assert.assertEquals(FeatureCodeInformationUtilizationCalculator.NOT_USED_IN_NETWORK, rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("1246")).findAny().get().getUtilization());
-		Assert.assertEquals(CapacityUnit.ON_OFF.toString(), rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("1305")).findAny().get().getUtilization());
-		Assert.assertEquals(FeatureCodeInformationUtilizationCalculator.NA, rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("1435")).findAny().get().getUtilization());
-		Assert.assertEquals(CapacityUnit.DYNAMIC_CELL.toString(), rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("1478")).findAny().get().getUtilization());
-		Assert.assertEquals("2", rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("1490")).findAny().get().getUtilization());
-		Assert.assertEquals("2", rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("1683")).findAny().get().getUtilization());
-		Assert.assertEquals(CapacityUnit.DYNAMIC_CELL.toString(), rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("1796")).findAny().get().getUtilization());
-		Assert.assertEquals("2", rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("1897")).findAny().get().getUtilization());
-		Assert.assertEquals(FeatureCodeInformationUtilizationCalculator.NOT_USED_IN_NETWORK, rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("1898")).findAny().get().getUtilization());
-		Assert.assertEquals("1", rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("1938")).findAny().get().getUtilization());
-		Assert.assertEquals("2", rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("2117")).findAny().get().getUtilization());
+		Assert.assertEquals("2", getUtilization(rnc841Name, "619"));
+		Assert.assertEquals(CapacityUnit.DYNAMIC_CELL.toString(), getUtilization(rnc841Name, "620"));
+		Assert.assertEquals(CapacityUnit.DYNAMIC_CELL.toString(), getUtilization(rnc841Name, "621"));
+		Assert.assertEquals(CapacityUnit.DYNAMIC_CELL.toString(), getUtilization(rnc841Name, "622"));
+		Assert.assertEquals(CapacityUnit.DYNAMIC_CELL.toString(), getUtilization(rnc841Name, "623"));
+		Assert.assertEquals("2", getUtilization(rnc841Name, "625"));
+		Assert.assertEquals("0", getUtilization(rnc841Name, "969"));
+		Assert.assertEquals("2", getUtilization(rnc841Name, "974"));
+		Assert.assertEquals("1", getUtilization(rnc841Name, "1029"));
+		Assert.assertEquals("2", getUtilization(rnc841Name, "1030"));
+		Assert.assertEquals("0", getUtilization(rnc841Name, "1057"));
+		Assert.assertEquals("2", getUtilization(rnc841Name, "1069"));
+		Assert.assertEquals("2", getUtilization(rnc841Name, "1070"));
+		Assert.assertEquals("2", getUtilization(rnc841Name, "1071"));
+		Assert.assertEquals("1", getUtilization(rnc841Name, "1079"));
+		Assert.assertEquals("2", getUtilization(rnc841Name, "1107"));
+		Assert.assertEquals(CapacityUnit.ON_OFF.toString(), getUtilization(rnc841Name, "1108"));
+		Assert.assertEquals("2", getUtilization(rnc841Name, "1110"));
+		Assert.assertEquals(FeatureCodeInformationUtilizationCalculator.NOT_USED_IN_NETWORK, getUtilization(rnc841Name, "1246"));
+		Assert.assertEquals(CapacityUnit.ON_OFF.toString(), getUtilization(rnc841Name, "1305"));
+		Assert.assertEquals(FeatureCodeInformationUtilizationCalculator.NA, getUtilization(rnc841Name, "1435"));
+		Assert.assertEquals(CapacityUnit.DYNAMIC_CELL.toString(), getUtilization(rnc841Name, "1478"));
+		Assert.assertEquals("2", getUtilization(rnc841Name, "1490"));
+		Assert.assertEquals("2", getUtilization(rnc841Name, "1683"));
+		Assert.assertEquals(CapacityUnit.DYNAMIC_CELL.toString(), getUtilization(rnc841Name, "1796"));
+		Assert.assertEquals("2", getUtilization(rnc841Name, "1897"));
+		Assert.assertEquals(FeatureCodeInformationUtilizationCalculator.NOT_USED_IN_NETWORK, getUtilization(rnc841Name, "1898"));
+		Assert.assertEquals("1", getUtilization(rnc841Name, "1938"));
+		Assert.assertEquals("2", getUtilization(rnc841Name, "2117"));
 	}
-	
+
 	@Test
 	public void testCalculateUtilizationBasedOnWbts() {
 		for (String key : rncsFeaturesMap.keySet()) {
 			utilizationCalculator.calculateUtilization(rncsFeaturesMap.get(key));
 		}
 		String rnc841Name = "R841N";
-		Assert.assertEquals("1", rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("641")).findAny().get().getUtilization());
-		Assert.assertEquals("1", rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("1085")).findAny().get().getUtilization());
-		Assert.assertEquals("1", rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("1088")).findAny().get().getUtilization());
-		Assert.assertEquals("1", rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("1093")).findAny().get().getUtilization());
-		Assert.assertEquals("1", rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("1303")).findAny().get().getUtilization());
-		Assert.assertEquals("2", rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("4783")).findAny().get().getUtilization());
-		Assert.assertEquals("2", rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("633")).findAny().get().getUtilization());
-		Assert.assertEquals("2", rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("1092")).findAny().get().getUtilization());
-		Assert.assertEquals("1", rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("1247")).findAny().get().getUtilization());
-		Assert.assertEquals("2", rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("1279")).findAny().get().getUtilization());
+		Assert.assertEquals("1", getUtilization(rnc841Name, "641"));
+		Assert.assertEquals("1", getUtilization(rnc841Name, "1085"));
+		Assert.assertEquals("1", getUtilization(rnc841Name, "1088"));
+		Assert.assertEquals("1", getUtilization(rnc841Name, "1093"));
+		Assert.assertEquals("1", getUtilization(rnc841Name, "1303"));
+		Assert.assertEquals("2", getUtilization(rnc841Name, "4783"));
+		Assert.assertEquals("2", getUtilization(rnc841Name, "633"));
+		Assert.assertEquals("2", getUtilization(rnc841Name, "1092"));
+		Assert.assertEquals("1", getUtilization(rnc841Name, "1247"));
+		Assert.assertEquals("2", getUtilization(rnc841Name, "1279"));
 	}
-	
+
 	@Test
 	public void testCalculateUtilizationBasedOnRNHSPA() {
 		for (String key : rncsFeaturesMap.keySet()) {
 			utilizationCalculator.calculateUtilization(rncsFeaturesMap.get(key));
 		}
 		String rnc841Name = "R841N";
-		Assert.assertEquals("2", rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("1028")).findAny().get().getUtilization());
+		Assert.assertEquals("2", getUtilization(rnc841Name, "1028"));
 	}
-	
+
 	@Test
 	public void testCalculateUtilizationBasedOnFMCG() {
 		for (String key : rncsFeaturesMap.keySet()) {
 			utilizationCalculator.calculateUtilization(rncsFeaturesMap.get(key));
 		}
 		String rnc841Name = "R841N";
-		Assert.assertEquals("1", rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("1302")).findAny().get().getUtilization());
+		Assert.assertEquals("1", getUtilization(rnc841Name, "1302"));
 	}
-	
+
 	@Test
 	public void testCalculateUtilizationBasedOnRNMOBI() {
 		for (String key : rncsFeaturesMap.keySet()) {
 			utilizationCalculator.calculateUtilization(rncsFeaturesMap.get(key));
 		}
 		String rnc841Name = "R841N";
-		Assert.assertEquals("2", rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("628")).findAny().get().getUtilization());
+		Assert.assertEquals("2", getUtilization(rnc841Name, "628"));
 	}
-	
+
 	@Test
 	public void testCalculateUtilizationBasedOnFMCS() {
 		for (String key : rncsFeaturesMap.keySet()) {
 			utilizationCalculator.calculateUtilization(rncsFeaturesMap.get(key));
 		}
 		String rnc841Name = "R841N";
-		Assert.assertEquals("2", rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("1080")).findAny().get().getUtilization());
-		Assert.assertEquals("2", rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("1109")).findAny().get().getUtilization());
+		Assert.assertEquals("2", getUtilization(rnc841Name, "1080"));
+		Assert.assertEquals("2", getUtilization(rnc841Name, "1109"));
 	}
-	
+
 	@Test
 	public void testCalculateUtilizationBasedOnRNC() {
 		for (String key : rncsFeaturesMap.keySet()) {
 			utilizationCalculator.calculateUtilization(rncsFeaturesMap.get(key));
 		}
 		String rnc841Name = "R841N";
-		Assert.assertEquals("2", rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("1375")).findAny().get().getUtilization());
-		Assert.assertEquals("2", rncsFeaturesMap.get(rnc841Name).stream().filter(item -> item.getCode().equals("1434")).findAny().get().getUtilization());
+		Assert.assertEquals("2", getUtilization(rnc841Name, "1375"));
+		Assert.assertEquals("2", getUtilization(rnc841Name, "1434"));
 	}
 }
